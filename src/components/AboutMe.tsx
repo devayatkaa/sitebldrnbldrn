@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { User, Mail, Send, Copy, Check } from 'lucide-react';
 
-export default function AboutMe({ lang }: { lang: 'RU' | 'EN' }) {
+export default function AboutMe({ lang = 'RU' }: { lang?: 'RU' | 'EN' }) {
   const [copied, setCopied] = useState(false);
   
   const email = "notbladerunnnerr@gmail.com"; // ЗАМЕНИТЕ НА ВАШ АДРЕС
