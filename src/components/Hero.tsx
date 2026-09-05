@@ -45,7 +45,7 @@ export default function Hero() {
           </h1>
           
           <p className="max-w-md text-sm md:text-base lg:text-lg text-white/40 font-light leading-relaxed">
-     
+        
           </p>
         </div>
 
