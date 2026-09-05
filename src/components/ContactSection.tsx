@@ -21,7 +21,7 @@ export default function ContactSection() {
         <div className="flex flex-col gap-4 w-full">
           {/* Telegram */}
           <a 
-            href="https://t.me/your_user" // ЗАМЕНИТЕ НА ВАШ ТГ
+            href="https://t.me/yl" // ЗАМЕНИТЕ НА ВАШ ТГ
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center justify-between px-8 bg-white/5 hover:bg-[#229ED9]/10 border border-white/5 hover:border-[#229ED9]/30 h-20 rounded-[24px] transition-all duration-500"
