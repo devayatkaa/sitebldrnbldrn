@@ -12,12 +12,10 @@ export default function Home() {
   // Активируем логику появления при скролле
   useScrollReveal();
   
-  const [lang, setLang] = useState<'RU' | 'EN'>('RU');
-
   return (
     <main className="relative min-h-screen">
       <Background />
-      <Header lang={lang} setLang={setLang} />
+      <Header />
       
       <Hero />
       
@@ -65,7 +63,7 @@ export default function Home() {
 
       {/* Секция About Me */}
       <div className="reveal-hidden transform-gpu">
-        <AboutMe lang={lang} />
+        <AboutMe />
       </div>
 
     </main>

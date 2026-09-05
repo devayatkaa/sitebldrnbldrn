@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-
 interface VideoCardProps {
   project: {
     id: string;
@@ -10,8 +9,8 @@ interface VideoCardProps {
     poster: string;
   };
   delayClass?: string;
+  onOpen?: (project: any) => void;
 }
-
 export default function VideoCard({ project, delayClass }: VideoCardProps) {
   return (
     /* 
