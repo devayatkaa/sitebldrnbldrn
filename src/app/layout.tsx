@@ -1,24 +1,33 @@
 import React from 'react';
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Unbounded, Manrope } from "next/font/google";
 import "./globals.css";
 import Background from "../components/Background";
 import Footer from "../components/Footer";
 
-const inter = Inter({ subsets: ["latin", "cyrillic"] });
+const fontDisplay = Unbounded({ 
+  subsets: ["latin", "cyrillic"],
+  variable: '--font-display',
+  weight: ['200', '300', '900'] // Добавили 200 для изящности
+});
+
+const fontSans = Manrope({ 
+  subsets: ["latin", "cyrillic"],
+  variable: '--font-sans',
+  weight: ['400', '600']
+});
 
 export const metadata: Metadata = {
-  title: "bldrn case",
-  description: "Портфолио",
+  title: "BLDRN | Visual Editor",
+  description: "Motion & Post-Production",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased text-white`}>
+    <html lang="ru" className={`${fontDisplay.variable} ${fontSans.variable}`}>
+      <body className="bg-[#050505] text-white antialiased font-sans">
         <Background />
         {children}
-        {/* Это единственный вызов Футера на весь проект */}
         <Footer />
       </body>
     </html>

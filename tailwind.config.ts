@@ -8,16 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "#05070a", // Глубокий иссиня-черный
+      fontFamily: {
+        display: ['var(--font-display)', 'sans-serif'],
+        sans: ['var(--font-sans)', 'sans-serif'],
       },
-      borderRadius: {
-        '3xl': '24px',
-        '4xl': '32px',
-      },
-      backdropBlur: {
-        xs: '2px',
-      }
     },
   },
   plugins: [],
