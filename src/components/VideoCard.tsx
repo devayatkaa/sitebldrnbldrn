@@ -13,9 +13,9 @@ interface VideoCardProps {
 }
 export default function VideoCard({ project, delayClass }: VideoCardProps) {
   return (
-    <div className={`flex flex-col gap-4 group reveal-hidden transform-gpu will-change-[transform,opacity] ${delayClass}`}>
+    <div className={`flex flex-col gap-3 md:gap-4 group reveal-hidden transform-gpu will-change-[transform,opacity] ${delayClass}`}>
       
-      <div className="relative aspect-video rounded-[32px] overflow-hidden bg-white/5 border border-white/10 shadow-2xl transition-all duration-700">
+      <div className="relative aspect-video rounded-[24px] md:rounded-[32px] overflow-hidden bg-white/5 border border-white/10 shadow-2xl transition-all duration-700">
         <video
           src={project.videoUrl}
           poster={project.poster}
@@ -31,14 +31,14 @@ export default function VideoCard({ project, delayClass }: VideoCardProps) {
       </div>
       
       {/* Подпись */}
-      <div className="px-4 flex flex-col gap-2">
+      <div className="px-2 md:px-4 flex flex-col gap-1.5 md:gap-2">
         <div className="flex items-center gap-3">
-          <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-white/40 font-semibold">
+          <span className="font-sans text-[9px] md:text-[10px] uppercase tracking-[0.25em] md:tracking-[0.3em] text-white/40 font-semibold">
             {project.category}
           </span>
           <div className="h-[1px] flex-1 bg-white/10 self-center"></div>
         </div>
-        <h3 className="font-display text-xl md:text-2xl font-medium tracking-tight text-white/90 group-hover:text-white transition-colors duration-500">
+        <h3 className="font-display text-lg md:text-2xl font-medium tracking-tight text-white/90 group-hover:text-white transition-colors duration-500">
           {project.title}
         </h3>
       </div>
