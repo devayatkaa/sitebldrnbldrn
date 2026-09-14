@@ -41,7 +41,7 @@ export default function Hero() {
             <div className="relative w-[150px] sm:w-[180px] md:w-[320px] lg:w-[380px] aspect-square flex items-center justify-center animate-float">
               <div className="absolute inset-0 bg-[#0d2b1d] opacity-30 blur-[50px] md:blur-[70px] rounded-full scale-110" />
               <img
-                src="/images/bg-object.png"
+                src="https://pub-1da93a6fafd14fe684660a2ca5bc384a.r2.dev/bg-object.png"
                 alt="Bladerunner"
                 className="relative z-10 w-[92%] h-auto drop-shadow-[0_15px_40px_rgba(0,0,0,0.7)] filter brightness-[0.95] contrast-[1.08]"
               />
