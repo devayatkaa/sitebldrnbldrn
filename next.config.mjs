@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Это заставит Next создать папку 'out'
-  images: {
-    unoptimized: true, // Нужно для статического режима
-  },
+  // Turbopack может конфликтовать с некоторыми типами импортов, 
+  // но базовые настройки здесь не требуются.
 };
 
 export default nextConfig;
