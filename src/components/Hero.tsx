@@ -11,7 +11,7 @@ export default function Hero() {
     <section className="relative overflow-hidden">
 
       {/* ============================================================
-          1. ВЕРСИЯ ДЛЯ ПК (md:block)
+          1. ВЕРСИЯ ДЛЯ ПК (md:block) — БЕЗ ИЗМЕНЕНИЙ
           ============================================================ */}
       <div className="hidden md:block relative z-10">
         <div className="relative flex flex-col items-center px-6 pt-20 pb-10 max-w-[1600px] mx-auto">
@@ -50,7 +50,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Звезды для ПК (Остались как были) */}
           <span className="absolute top-[18%] left-[20%] text-white/30 text-base animate-pulse">✦</span>
           <span className="absolute top-[30%] right-[22%] text-white/20 text-sm animate-pulse" style={{ animationDelay: '1s' }}>✦</span>
           <span className="absolute bottom-[15%] left-[30%] text-white/20 text-base animate-pulse" style={{ animationDelay: '2s' }}>✦</span>
@@ -97,10 +96,15 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* ТОЛЬКО ДВЕ ЗВЕЗДЫ ДЛЯ МОБИЛКИ В БЕЗОПАСНЫХ МЕСТАХ */}
-          {/* Одна слева посередине, вторая справа чуть ниже кота */}
-          <span className="absolute top-[40%] left-[5%] text-white/20 text-[10px] animate-pulse">✦</span>
-          <span className="absolute top-[65%] right-[5%] text-white/15 text-[8px] animate-pulse" style={{ animationDelay: '1.2s' }}>✦</span>
+          {/* 4 ЗВЕЗДЫ ДЛЯ АНДРОИДА В БЕЗОПАСНЫХ ЗОНАХ */}
+          {/* 1. Слева сверху (между лого и MOTION) */}
+          <span className="absolute top-[14%] left-[10%] text-white/20 text-[10px] animate-pulse">✦</span>
+          {/* 2. Справа сверху (между Contact и MOTION) */}
+          <span className="absolute top-[25%] right-[10%] text-white/15 text-[8px] animate-pulse" style={{ animationDelay: '0.5s' }}>✦</span>
+          {/* 3. Слева от кота */}
+          <span className="absolute top-[55%] left-[8%] text-white/15 text-[10px] animate-pulse" style={{ animationDelay: '1.2s' }}>✦</span>
+          {/* 4. Справа от нижнего текста */}
+          <span className="absolute top-[80%] right-[15%] text-white/10 text-[9px] animate-pulse" style={{ animationDelay: '2.1s' }}>✦</span>
         </div>
       </div>
 
