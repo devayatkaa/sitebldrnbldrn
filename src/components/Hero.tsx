@@ -50,7 +50,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Звезды для ПК (Оригинальные позиции) */}
+          {/* Звезды для ПК (Остались как были) */}
           <span className="absolute top-[18%] left-[20%] text-white/30 text-base animate-pulse">✦</span>
           <span className="absolute top-[30%] right-[22%] text-white/20 text-sm animate-pulse" style={{ animationDelay: '1s' }}>✦</span>
           <span className="absolute bottom-[15%] left-[30%] text-white/20 text-base animate-pulse" style={{ animationDelay: '2s' }}>✦</span>
@@ -97,9 +97,10 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Звезды для Андроид (Безопасные позиции, чтобы не лезли под кнопки) */}
-          <span className="absolute top-[28%] left-[10%] text-white/20 text-[10px] animate-pulse">✦</span>
-          <span className="absolute bottom-[20%] right-[12%] text-white/15 text-[8px] animate-pulse" style={{ animationDelay: '1s' }}>✦</span>
+          {/* ТОЛЬКО ДВЕ ЗВЕЗДЫ ДЛЯ МОБИЛКИ В БЕЗОПАСНЫХ МЕСТАХ */}
+          {/* Одна слева посередине, вторая справа чуть ниже кота */}
+          <span className="absolute top-[40%] left-[5%] text-white/20 text-[10px] animate-pulse">✦</span>
+          <span className="absolute top-[65%] right-[5%] text-white/15 text-[8px] animate-pulse" style={{ animationDelay: '1.2s' }}>✦</span>
         </div>
       </div>
 
