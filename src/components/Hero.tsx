@@ -96,14 +96,13 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* 4 ЗВЕЗДЫ ДЛЯ АНДРОИДА В БЕЗОПАСНЫХ ЗОНАХ */}
-          {/* 1. Слева сверху (между лого и MOTION) */}
-          <span className="absolute top-[14%] left-[12%] text-white/20 text-[10px] animate-pulse">✦</span>
-          {/* 2. Справа сверху (между Contact и MOTION) */}
-          <span className="absolute top-[25%] right-[10%] text-white/15 text-[8px] animate-pulse" style={{ animationDelay: '0.5s' }}>✦</span>
-          {/* 3. Слева от кота */}
+          {/* 4 ЗВЕЗДЫ ДЛЯ АНДРОИДА */}
+          <span className="absolute top-[14%] left-[10%] text-white/20 text-[10px] animate-pulse">✦</span>
+          
+          {/* Звезда около MOTION — Подвинули максимально вправо (right-[4%]) */}
+          <span className="absolute top-[25%] right-[4%] text-white/15 text-[8px] animate-pulse" style={{ animationDelay: '0.5s' }}>✦</span>
+          
           <span className="absolute top-[55%] left-[8%] text-white/15 text-[10px] animate-pulse" style={{ animationDelay: '1.2s' }}>✦</span>
-          {/* 4. Справа от нижнего текста */}
           <span className="absolute top-[80%] right-[15%] text-white/10 text-[9px] animate-pulse" style={{ animationDelay: '2.1s' }}>✦</span>
         </div>
       </div>
