@@ -18,7 +18,7 @@ const fontSans = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "BLDRN | Visual Editor",
+  title: "bldrn case",
   description: "Motion & Post-Production",
 };
 
