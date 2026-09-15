@@ -35,9 +35,9 @@ export default function Hero() {
           MOTION
         </h1>
 
-        {/* Объект — с достаточным отступом, чтобы левитация не задевала текст */}
-        <div className={`relative flex-shrink-0 mt-6 transition-all duration-700 delay-200 ${reveal} md:mt-2`}>
-          <div className="relative w-[190px] sm:w-[220px] md:w-[320px] lg:w-[380px] aspect-square flex items-center justify-center animate-float">
+        {/* Объект — вплотную к MOTION, без анимации левитации на мобильном, чтобы не заезжало на текст */}
+        <div className={`relative flex-shrink-0 -mt-2 md:mt-2 transition-all duration-700 delay-200 ${reveal}`}>
+          <div className="relative w-[160px] sm:w-[190px] md:w-[320px] lg:w-[380px] aspect-square flex items-center justify-center md:animate-float">
             <div className="absolute inset-0 bg-[#0d2b1d] opacity-30 blur-[50px] md:blur-[70px] rounded-full scale-110" />
             <img
               src="https://pub-1da93a6fafd14fe684660a2ca5bc384a.r2.dev/bg-object.png"
@@ -48,7 +48,7 @@ export default function Hero() {
         </div>
 
         {/* Нижний текст */}
-        <div className={`flex flex-col items-center gap-2 md:gap-4 mt-5 md:mt-6 transition-all duration-700 delay-300 ${reveal}`}>
+        <div className={`flex flex-col items-center gap-2 md:gap-4 mt-3 md:mt-6 transition-all duration-700 delay-300 ${reveal}`}>
           <div className="h-4 md:h-6 w-[1px] bg-gradient-to-b from-white/40 to-transparent" />
           <p className="font-display text-[15px] md:text-2xl font-light text-white/80 text-center max-w-[250px] md:max-w-lg leading-snug">
             собираю кадры в истории, которые хочется досмотреть
