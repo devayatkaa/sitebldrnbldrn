@@ -12,7 +12,6 @@ export default function Hero() {
 
       {/* ============================================================
           1. ВЕРСИЯ ДЛЯ ПК (md:block)
-          Твой идеальный код. 
           ============================================================ */}
       <div className="hidden md:block relative z-10">
         <div className="relative flex flex-col items-center px-6 pt-20 pb-10 max-w-[1600px] mx-auto">
@@ -51,6 +50,7 @@ export default function Hero() {
             </div>
           </div>
 
+          {/* Звезды для ПК (Оригинальные позиции) */}
           <span className="absolute top-[18%] left-[20%] text-white/30 text-base animate-pulse">✦</span>
           <span className="absolute top-[30%] right-[22%] text-white/20 text-sm animate-pulse" style={{ animationDelay: '1s' }}>✦</span>
           <span className="absolute bottom-[15%] left-[30%] text-white/20 text-base animate-pulse" style={{ animationDelay: '2s' }}>✦</span>
@@ -61,7 +61,6 @@ export default function Hero() {
 
       {/* ============================================================
           2. ВЕРСИЯ ДЛЯ АНДРОИДА / МОБИЛОК (block md:hidden)
-          ИЗМЕНЕНО: pb-4 для сокращения расстояния до видео.
           ============================================================ */}
       <div className="block md:hidden relative z-10">
         <div className="flex flex-col items-center px-8 pt-24 pb-4 relative">
@@ -93,14 +92,14 @@ export default function Hero() {
 
           <div className={`flex flex-col items-center gap-3 mt-6 transition-all duration-700 delay-300 ${reveal}`}>
             <div className="h-4 w-[1px] bg-white/20" />
-            {/* ИЗМЕНЕНО: text-white/90 (было 70) для яркости */}
             <p className="font-display text-[16px] font-light text-white/90 text-center max-w-[260px] leading-tight">
               собираю кадры в истории, которые хочется досмотреть
             </p>
           </div>
 
-          <span className="absolute top-[10%] left-[8%] text-white/30 text-[10px] animate-pulse">✦</span>
-          <span className="absolute top-[14%] right-[10%] text-white/20 text-[8px] animate-pulse" style={{ animationDelay: '1s' }}>✦</span>
+          {/* Звезды для Андроид (Безопасные позиции, чтобы не лезли под кнопки) */}
+          <span className="absolute top-[28%] left-[10%] text-white/20 text-[10px] animate-pulse">✦</span>
+          <span className="absolute bottom-[20%] right-[12%] text-white/15 text-[8px] animate-pulse" style={{ animationDelay: '1s' }}>✦</span>
         </div>
       </div>
 
