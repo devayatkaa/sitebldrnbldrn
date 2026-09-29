@@ -80,7 +80,7 @@ export default function AboutMe({ lang = 'RU' }: AboutMeProps) {
 
               <h2 className="text-4xl font-bold tracking-tighter text-white md:text-7xl">
                 {lang === 'RU' ? 'я' : "I'm"}
-                <span className="font-light italic text-white/70 ml-5">
+                <span className="font-light italic text-white/70 ml-3">
                   Александр
                 </span>
               </h2>

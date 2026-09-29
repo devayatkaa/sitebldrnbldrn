@@ -78,7 +78,7 @@ export default function Hero() {
               filter: 'drop-shadow(0 8px 26px rgba(0,0,0,0.55))',
             }}
           >
-            MOTION
+            МОУШН
           </h1>
 
           <div className={`relative flex-shrink-0 mt-6 transition-all duration-700 delay-200 ${reveal}`}>
