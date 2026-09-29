@@ -74,18 +74,18 @@ export default function AboutMe({ lang = 'RU' }: AboutMeProps) {
             {/* Text */}
             <div className="space-y-4 md:space-y-6">
 
-              <span className="inline-block rounded-full border border-white/10 bg-white/[0.08] px-4 py-1 text-[9px] font-bold uppercase tracking-[0.3em] text-white/50 md:text-[10px]">
+              <span className="inline-block rounded-full border border-white/10 bg-white/[0.08] px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white/60 md:text-[12px]">
                 {lang === 'RU' ? 'BLADERUNNER' : 'about me'}
               </span>
 
               <h2 className="text-4xl font-bold tracking-tighter text-white md:text-7xl">
-                {lang === 'RU' ? 'я' : "I'm"}{' '}
-                <span className="font-light italic text-white/60">
+                {lang === 'RU' ? 'я' : "I'm"}
+                <span className="font-light italic text-white/70 ml-5">
                   Александр
                 </span>
               </h2>
 
-              <p className="max-w-2xl text-base font-light leading-relaxed text-white/40 md:text-2xl">
+              <p className="max-w-2xl text-base font-light leading-relaxed text-white/50 md:text-2xl">
                 {lang === 'RU'
                   ? 'Работаю в разных сферах с разными авторами, основное направление развлекательный контент'
                   : 'I specialize in dense, structured storytelling. My approach is a focus on clarity, rhythm, and intention.'}
@@ -101,14 +101,14 @@ export default function AboutMe({ lang = 'RU' }: AboutMeProps) {
                 href={telegram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-12 items-center gap-3 rounded-full border border-white/10 bg-white/[0.05] px-6 shadow-xl transition-colors duration-300 hover:border-[#229ED9]/30 hover:bg-[#229ED9]/10 md:h-16 md:gap-4 md:px-8"
+                className="group flex h-14 items-center gap-3 rounded-full border border-white/10 bg-white/[0.06] px-7 transition-all duration-300 hover:border-[#229ED9]/40 hover:bg-[#229ED9]/10 md:h-16 md:gap-4 md:px-8"
               >
                 <Send
-                  size={18}
+                  size={20}
                   className="text-[#229ED9]"
                 />
 
-                <span className="text-[10px] font-bold uppercase tracking-widest text-white/90 md:text-[11px]">
+                <span className="text-[12px] font-bold uppercase tracking-wider text-white/90 md:text-[13px]">
                   Телеграм
                 </span>
               </a>
@@ -118,14 +118,14 @@ export default function AboutMe({ lang = 'RU' }: AboutMeProps) {
 
                 <a
                   href={'mailto:' + email}
-                  className="group flex h-12 items-center gap-3 rounded-full border border-white/10 bg-white/[0.05] px-6 shadow-xl transition-colors duration-300 hover:bg-white/10 md:h-16 md:gap-4"
+                  className="group flex h-14 items-center gap-3 rounded-full border border-white/10 bg-white/[0.06] px-7 transition-all duration-300 hover:bg-white/10 md:h-16 md:gap-4"
                 >
                   <Mail
-                    size={18}
-                    className="text-white/40 transition-colors group-hover:text-white"
+                    size={20}
+                    className="text-white/50 transition-colors group-hover:text-white"
                   />
 
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/90 md:text-[11px]">
+                  <span className="text-[12px] font-bold uppercase tracking-wider text-white/90 md:text-[13px]">
                     Почта
                   </span>
                 </a>
@@ -139,17 +139,17 @@ export default function AboutMe({ lang = 'RU' }: AboutMeProps) {
                       ? 'Скопировать email'
                       : 'Copy email'
                   }
-                  className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] shadow-xl transition-colors duration-300 hover:bg-white/10 md:h-16 md:w-16"
+                  className="group relative flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] transition-all duration-300 hover:bg-white/10 md:h-16 md:w-16"
                 >
                   {copied ? (
                     <Check
-                      size={18}
+                      size={20}
                       className="text-green-400"
                     />
                   ) : (
                     <Copy
-                      size={18}
-                      className="text-white/20"
+                      size={20}
+                      className="text-white/30"
                     />
                   )}
                 </button>

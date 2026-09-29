@@ -17,7 +17,7 @@ export default function ContactSection() {
     <section id="contact" className="py-40 px-6 max-w-xl mx-auto">
       <div className="backdrop-blur-3xl bg-white/5 border border-white/10 rounded-[48px] p-10 md:p-16 flex flex-col items-center shadow-2xl">
         <h2 className="text-3xl font-bold mb-12 tracking-tight text-white">Connect</h2>
-        
+         
         <div className="flex flex-col gap-4 w-full">
           {/* Telegram */}
           <a 
@@ -30,9 +30,9 @@ export default function ContactSection() {
               <div className="w-10 h-10 rounded-full bg-[#229ED9]/10 flex items-center justify-center text-[#229ED9]">
                 <Send size={18} />
               </div>
-              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-white">Telegram</span>
+              <span className="text-[12px] uppercase tracking-[0.15em] font-bold text-white">Telegram</span>
             </div>
-            <span className="text-[9px] uppercase tracking-widest text-white/20 group-hover:text-[#229ED9] transition-colors italic">@your_user</span>
+            <span className="text-[11px] uppercase tracking-wider text-white/30 group-hover:text-[#229ED9] transition-colors italic">@your_user</span>
           </a>
 
           {/* Email */}
@@ -45,9 +45,9 @@ export default function ContactSection() {
                 <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white">
                   <Mail size={18} />
                 </div>
-                <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-white">Email</span>
+                <span className="text-[12px] uppercase tracking-[0.15em] font-bold text-white">Email</span>
               </div>
-              <span className="text-[9px] uppercase tracking-widest text-white/20 group-hover:text-white transition-colors italic">Send Mail</span>
+              <span className="text-[11px] uppercase tracking-wider text-white/30 group-hover:text-white transition-colors italic">Send Mail</span>
             </a>
 
             {/* Кнопка копирования */}
@@ -56,7 +56,7 @@ export default function ContactSection() {
               className="w-20 h-20 bg-white/5 border border-white/5 rounded-[24px] flex flex-col items-center justify-center gap-1 hover:bg-white/10 transition-all text-white/40 hover:text-white"
             >
               {copied ? <Check size={18} className="text-green-400" /> : <Copy size={18} />}
-              <span className="text-[7px] uppercase tracking-tighter">{copied ? 'Copied' : 'Copy'}</span>
+              <span className="text-[9px] uppercase tracking-tighter">{copied ? 'Copied' : 'Copy'}</span>
             </button>
           </div>
         </div>

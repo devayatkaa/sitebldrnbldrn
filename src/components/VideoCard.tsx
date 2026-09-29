@@ -33,7 +33,7 @@ export default function VideoCard({ project, delayClass }: VideoCardProps) {
       {/* Подпись */}
       <div className="px-2 md:px-4 flex flex-col gap-1.5 md:gap-2">
         <div className="flex items-center gap-3">
-          <span className="font-sans text-[9px] md:text-[10px] uppercase tracking-[0.25em] md:tracking-[0.3em] text-white/40 font-semibold">
+          <span className="font-sans text-[11px] md:text-[12px] uppercase tracking-[0.2em] md:tracking-[0.25em] text-white/50 font-semibold">
             {project.category}
           </span>
           <div className="h-[1px] flex-1 bg-white/10 self-center"></div>

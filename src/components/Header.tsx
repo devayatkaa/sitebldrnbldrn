@@ -55,9 +55,10 @@ export default function Header() {
         <div className="relative">
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className={`backdrop-blur-2xl border transition-all duration-300 ease-out rounded-full px-6 md:px-10 h-12 md:h-14 flex items-center justify-center gap-3 md:gap-4 uppercase text-[9px] md:text-[10px] tracking-[0.2em] font-bold shadow-2xl hover:scale-105 active:scale-95
-              ${entranceStyles} transition-all duration-[900ms] delay-[200ms]
-              ${isOpen ? 'bg-white text-black border-white' : 'bg-white/[0.06] text-white border-white/10 hover:border-white/20'}`}
+            className={`backdrop-blur-2xl border rounded-full px-6 md:px-10 h-12 md:h-14 flex items-center justify-center gap-3 md:gap-4 uppercase text-[11px] md:text-[12px] tracking-[0.15em] font-bold shadow-2xl
+              ${entranceStyles}
+              ${isOpen ? 'bg-white text-black border-white' : 'bg-white/[0.06] text-white border-white/10 hover:border-white/20 hover:scale-105 active:scale-95'}
+              transition-[background-color,border-color,transform] duration-300 ease-out`}
           >
             Контакты
             <ChevronDown size={14} className={`transition-transform duration-500 ${isOpen ? 'rotate-180' : 'opacity-40'}`} />
@@ -70,12 +71,12 @@ export default function Header() {
             <div className="flex flex-col gap-2.5">
               <a href="https://t.me/bladerunnnerr" target="_blank" className="group flex items-center gap-4 h-14 px-5 rounded-2xl bg-white/[0.04] border border-white/[0.06] hover:bg-[#229ED9]/10 hover:border-[#229ED9]/30 transition-all duration-300">
                 <Send size={16} className="text-[#229ED9]" />
-                <span className="text-[10px] uppercase tracking-widest font-bold text-white">Телеграм</span>
+                <span className="text-[12px] uppercase tracking-wider font-bold text-white">Телеграм</span>
               </a>
               <div className="flex gap-2.5">
                 <a href={`mailto:${email}`} className="flex-grow flex items-center gap-4 h-14 px-5 rounded-2xl bg-white/[0.04] border border-white/[0.06] hover:bg-white/[0.08] text-white transition-all duration-300">
                   <Mail size={16} />
-                  <span className="text-[10px] uppercase tracking-widest font-bold">Почта</span>
+                  <span className="text-[12px] uppercase tracking-wider font-bold">Почта</span>
                 </a>
                 <button onClick={handleCopy} className="w-14 h-14 flex items-center justify-center rounded-2xl bg-white/[0.04] border border-white/[0.06] hover:bg-white/[0.08] text-white/40 hover:text-white transition-all duration-300">
                   {copied ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}

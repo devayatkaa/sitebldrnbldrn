@@ -28,6 +28,19 @@ export default function Home() {
     const elements = document.querySelectorAll('.reveal-hidden');
     elements.forEach((el) => observer.observe(el));
 
+    // Показываем элементы которые уже видны при загрузке
+    const checkVisible = () => {
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('reveal-visible');
+          observer.unobserve(el);
+        }
+      });
+    };
+
+    checkVisible();
+
     const timeout = setTimeout(() => {
       const heroElements = document.querySelectorAll('section:first-of-type .reveal-hidden');
       heroElements.forEach(el => el.classList.add('reveal-visible'));
@@ -48,7 +61,7 @@ export default function Home() {
       <Hero />
 
       {/* 2. ПОРТФОЛИО */}
-      <section id="projects" className="relative z-50 mx-auto max-w-[1600px] space-y-16 px-6 pb-12 pt-4 md:space-y-24 md:px-12 md:pb-16 md:pt-6 lg:px-24">
+      <section id="projects" className="relative z-50 mx-auto max-w-[1920px] space-y-24 px-6 pb-20 pt-8 md:space-y-32 md:px-20 md:pb-24 md:pt-10 lg:px-40">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
           {projects.slice(0, 3).map((p, i) => (
             <div key={p.id} className="reveal-hidden transform-gpu">

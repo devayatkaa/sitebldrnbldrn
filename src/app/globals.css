@@ -13,6 +13,8 @@
     background-color: #050505;
     color: white;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   ::selection {
@@ -108,11 +110,6 @@
   background: #262626;
 }
 .reveal-hidden {
-  backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
-}
-
-.reveal-hidden h3,
-.reveal-hidden span {
-  transform: translateZ(0);
+  -moz-osx-font-smoothing: grayscale;
 }
