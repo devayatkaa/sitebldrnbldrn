@@ -75,13 +75,13 @@ export default function AboutMe({ lang = 'RU' }: AboutMeProps) {
             <div className="space-y-4 md:space-y-6">
 
               <span className="inline-block rounded-full border border-white/10 bg-white/[0.08] px-4 py-1 text-[9px] font-bold uppercase tracking-[0.3em] text-white/50 md:text-[10px]">
-                {lang === 'RU' ? 'обо мне' : 'about me'}
+                {lang === 'RU' ? 'BLADERUNNER' : 'about me'}
               </span>
 
               <h2 className="text-4xl font-bold tracking-tighter text-white md:text-7xl">
-                {lang === 'RU' ? 'Я' : "I'm"}{' '}
+                {lang === 'RU' ? 'я' : "I'm"}{' '}
                 <span className="font-light italic text-white/60">
-                  Bladerunner
+                  Александр
                 </span>
               </h2>
 
@@ -109,7 +109,7 @@ export default function AboutMe({ lang = 'RU' }: AboutMeProps) {
                 />
 
                 <span className="text-[10px] font-bold uppercase tracking-widest text-white/90 md:text-[11px]">
-                  Telegram
+                  Телеграм
                 </span>
               </a>
 
@@ -126,7 +126,7 @@ export default function AboutMe({ lang = 'RU' }: AboutMeProps) {
                   />
 
                   <span className="text-[10px] font-bold uppercase tracking-widest text-white/90 md:text-[11px]">
-                    Email
+                    Почта
                   </span>
                 </a>
 

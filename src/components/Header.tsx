@@ -59,7 +59,7 @@ export default function Header() {
               ${entranceStyles} transition-all duration-[900ms] delay-[200ms]
               ${isOpen ? 'bg-white text-black border-white' : 'bg-white/[0.06] text-white border-white/10 hover:border-white/20'}`}
           >
-            Contact
+            Контакты
             <ChevronDown size={14} className={`transition-transform duration-500 ${isOpen ? 'rotate-180' : 'opacity-40'}`} />
           </button>
 
@@ -70,12 +70,12 @@ export default function Header() {
             <div className="flex flex-col gap-2.5">
               <a href="https://t.me/bladerunnnerr" target="_blank" className="group flex items-center gap-4 h-14 px-5 rounded-2xl bg-white/[0.04] border border-white/[0.06] hover:bg-[#229ED9]/10 hover:border-[#229ED9]/30 transition-all duration-300">
                 <Send size={16} className="text-[#229ED9]" />
-                <span className="text-[10px] uppercase tracking-widest font-bold text-white">Telegram</span>
+                <span className="text-[10px] uppercase tracking-widest font-bold text-white">Телеграм</span>
               </a>
               <div className="flex gap-2.5">
                 <a href={`mailto:${email}`} className="flex-grow flex items-center gap-4 h-14 px-5 rounded-2xl bg-white/[0.04] border border-white/[0.06] hover:bg-white/[0.08] text-white transition-all duration-300">
                   <Mail size={16} />
-                  <span className="text-[10px] uppercase tracking-widest font-bold">Mail</span>
+                  <span className="text-[10px] uppercase tracking-widest font-bold">Почта</span>
                 </a>
                 <button onClick={handleCopy} className="w-14 h-14 flex items-center justify-center rounded-2xl bg-white/[0.04] border border-white/[0.06] hover:bg-white/[0.08] text-white/40 hover:text-white transition-all duration-300">
                   {copied ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}

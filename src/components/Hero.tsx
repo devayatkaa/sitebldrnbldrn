@@ -14,48 +14,40 @@ export default function Hero() {
           1. ВЕРСИЯ ДЛЯ ПК
           ============================================================ */}
       <div className="hidden md:block relative z-10">
-        <div className="relative flex flex-col items-center px-6 pt-16 pb-6 max-w-[1600px] mx-auto">
+        <div className="relative flex flex-col items-center px-6 pt-20 pb-10 max-w-[1600px] mx-auto">
 
           <div className={`absolute inset-0 flex items-center justify-center pointer-events-none select-none transition-all duration-1000 delay-300 ${reveal}`}>
-            <span className="font-display font-[900] text-[26vw] leading-none text-white/[0.025] uppercase tracking-tighter">
-              EDIT
-            </span>
+            <span className="font-display font-[900] text-[26vw] leading-none text-white/[0.025] uppercase tracking-tighter">EDIT</span>
           </div>
 
           <div className="relative z-10 flex flex-col items-center">
+            <p className={`font-sans text-xs uppercase tracking-[0.4em] text-white/40 mb-3 transition-all duration-700 ${reveal}`}>bldrn — видеомонтажёр</p>
 
-            <div className={`flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all duration-700 ${reveal}`}>
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-400"></span>
-              </span>
-              <span className="font-sans text-[10px] uppercase tracking-[0.25em] text-white/50">открыт для проектов</span>
-            </div>
-
-            <p className={`font-sans text-xs uppercase tracking-[0.4em] text-white/40 mb-1 transition-all duration-700 ${reveal}`}>
-              bldrn — video editor
-            </p>
-
-            <h1 className={`font-display text-[9vw] font-[900] uppercase tracking-tighter leading-none text-white transition-all duration-700 delay-100 ${reveal}`}>
-              MOTION
+            <h1
+              className={`font-display text-[9vw] font-[900] uppercase tracking-tighter leading-none bg-clip-text text-transparent transition-all duration-700 delay-100 ${reveal}`}
+              style={{
+                backgroundImage: 'linear-gradient(180deg, #ffffff 0%, #f0f0f0 55%, #c4c4c4 100%)',
+                filter: 'drop-shadow(0 10px 40px rgba(0,0,0,0.55))',
+              }}
+            >
+              МОУШН
             </h1>
 
-            <div className={`relative flex-shrink-0 mt-2 transition-all duration-700 delay-200 ${reveal}`}>
-              <div className="relative w-[300px] lg:w-[350px] aspect-square flex items-center justify-center animate-float">
+            <div className={`relative flex-shrink-0 mt-4 transition-all duration-700 delay-200 ${reveal}`}>
+              <div className="relative w-[300px] lg:w-[340px] aspect-square flex items-center justify-center animate-float">
                 <div className="absolute inset-0 bg-[#0d2b1d] opacity-30 blur-[70px] rounded-full scale-110" />
                 <img
                   src="https://pub-1da93a6fafd14fe684660a2ca5bc384a.r2.dev/bg-object.png"
                   alt="Bladerunner"
-                  className="relative z-10 w-[92%] h-auto drop-shadow-[0_15px_40px_rgba(0,0,0,0.7)] filter brightness-[0.95] contrast-[1.08]"
+                  className="relative z-10 w-[92%] h-auto"
+                  style={{ filter: 'brightness(0.97) contrast(1.08) drop-shadow(0 20px 30px rgba(0,0,0,0.45))' }}
                 />
               </div>
             </div>
 
-            <div className={`flex flex-col items-center gap-4 mt-5 transition-all duration-700 delay-300 ${reveal}`}>
+            <div className={`flex flex-col items-center gap-4 mt-6 transition-all duration-700 delay-300 ${reveal}`}>
               <div className="h-6 w-[1px] bg-gradient-to-b from-white/40 to-transparent" />
-              <p className="font-display text-2xl font-light text-white/80 text-center max-w-lg leading-snug">
-                собираю кадры в истории, которые хочется досмотреть
-              </p>
+              <p className="font-display text-2xl font-light text-white/80 text-center max-w-lg leading-snug">собираю кадры в истории, которые хочется досмотреть</p>
             </div>
           </div>
 
@@ -71,46 +63,39 @@ export default function Hero() {
           2. ВЕРСИЯ ДЛЯ АНДРОИДА / МОБИЛОК
           ============================================================ */}
       <div className="block md:hidden relative z-10">
-        <div className="flex flex-col items-center px-8 pt-20 pb-4 relative">
+        <div className="flex flex-col items-center px-8 pt-24 pb-4 relative">
 
-          <div className={`absolute top-32 pointer-events-none select-none transition-all duration-1000 delay-300 z-0 ${reveal}`}>
-            <span className="font-display font-[900] text-[36vw] leading-none text-white/[0.03] uppercase tracking-tighter">
-              EDIT
-            </span>
+          <div className={`absolute top-36 pointer-events-none select-none transition-all duration-1000 delay-300 z-0 ${reveal}`}>
+            <span className="font-display font-[900] text-[36vw] leading-none text-white/[0.03] uppercase tracking-tighter">EDIT</span>
           </div>
 
-          <div className={`flex items-center gap-2 mb-3 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] transition-all duration-700 ${reveal}`}>
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-400"></span>
-            </span>
-            <span className="font-sans text-[8px] uppercase tracking-[0.2em] text-white/50">открыт для проектов</span>
-          </div>
+          <p className={`font-sans text-[8px] uppercase tracking-[0.2em] text-white/30 mb-3 transition-all duration-700 ${reveal}`}>bldrn — видеомонтажёр</p>
 
-          <p className={`font-sans text-[8px] uppercase tracking-[0.2em] text-white/30 mb-2 transition-all duration-700 ${reveal}`}>
-            bldrn — video editor
-          </p>
-
-          <h1 className={`relative z-10 font-display text-[15vw] font-[900] uppercase tracking-tighter leading-none text-white transition-all duration-700 delay-100 ${reveal}`}>
+          <h1
+            className={`relative z-10 font-display text-[15vw] font-[900] uppercase tracking-tighter leading-none bg-clip-text text-transparent transition-all duration-700 delay-100 ${reveal}`}
+            style={{
+              backgroundImage: 'linear-gradient(180deg, #ffffff 0%, #f0f0f0 55%, #c4c4c4 100%)',
+              filter: 'drop-shadow(0 8px 26px rgba(0,0,0,0.55))',
+            }}
+          >
             MOTION
           </h1>
 
           <div className={`relative flex-shrink-0 mt-6 transition-all duration-700 delay-200 ${reveal}`}>
-            <div className="relative w-[240px] aspect-square flex items-center justify-center animate-float">
+            <div className="relative w-[220px] aspect-square flex items-center justify-center animate-float">
               <div className="absolute inset-0 bg-[#0d2b1d] opacity-30 blur-[50px] rounded-full scale-110" />
               <img
                 src="https://pub-1da93a6fafd14fe684660a2ca5bc384a.r2.dev/bg-object.png"
                 alt="Bladerunner"
-                className="relative z-10 w-[95%] h-auto drop-shadow-[0_10px_25px_rgba(0,0,0,0.8)]"
+                className="relative z-10 w-[95%] h-auto"
+                style={{ filter: 'brightness(0.97) contrast(1.08) drop-shadow(0 14px 20px rgba(0,0,0,0.45))' }}
               />
             </div>
           </div>
 
           <div className={`flex flex-col items-center gap-3 mt-6 transition-all duration-700 delay-300 ${reveal}`}>
             <div className="h-4 w-[1px] bg-white/20" />
-            <p className="font-display text-[16px] font-light text-white/90 text-center max-w-[260px] leading-tight">
-              собираю кадры в истории, которые хочется досмотреть
-            </p>
+            <p className="font-display text-[16px] font-light text-white/90 text-center max-w-[260px] leading-tight">собираю кадры в истории, которые хочется досмотреть</p>
           </div>
 
           <span className="absolute top-[14%] left-[10%] text-white/20 text-[10px] animate-pulse">✦</span>

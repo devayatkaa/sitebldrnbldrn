@@ -48,7 +48,7 @@ export default function Home() {
       <Hero />
 
       {/* 2. ПОРТФОЛИО */}
-      <section id="projects" className="relative z-50 px-6 md:px-12 lg:px-24 max-w-[1600px] mx-auto py-12 md:py-16 space-y-24">
+      <section id="projects" className="relative z-50 mx-auto max-w-[1600px] space-y-16 px-6 pb-12 pt-4 md:space-y-24 md:px-12 md:pb-16 md:pt-6 lg:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
           {projects.slice(0, 3).map((p, i) => (
             <div key={p.id} className="reveal-hidden transform-gpu">
