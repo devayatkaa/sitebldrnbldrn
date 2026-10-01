@@ -106,6 +106,7 @@
 .hero-object { width: clamp(216px, 58vw, 340px); flex: 1 1 0; min-height: 64px; max-height: 340px; aspect-ratio: auto; margin-top: 12px; }
 .hero-object img { max-height: 100%; object-fit: contain; }
 .hero-backdrop span { font-size: clamp(112px, 32vw, 480px); }
+.hero-mobile-backdrop { display: none; }
 .hero-tagline { max-width: 32rem; font-size: clamp(16px, 2.4vw, 24px); line-height: 1.375; letter-spacing: normal; text-wrap: balance; }
 .pearl-text {
   color: #e5e5f2;
@@ -215,6 +216,27 @@
   .hero-eyebrow { font-size: 9px; letter-spacing: 0.12em; }
   .video-card-heading { flex-direction: column; align-items: flex-start; }
   .video-card-heading > .video-title-link, .video-card-heading > h3 { flex: none; }
+}
+/* On portrait phones EDIT belongs to the cat, not the entire hero section. */
+@media (max-width: 767px) and (orientation: portrait) {
+  .hero-backdrop { display: none; }
+  .hero-mobile-backdrop {
+    display: flex;
+    position: absolute;
+    inset-block: 0;
+    left: 50%;
+    width: calc(100vw - 32px);
+    transform: translateX(-50%);
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    user-select: none;
+    color: rgba(255,255,255,0.035);
+  }
+  .hero-mobile-backdrop span {
+    font-size: clamp(104px, 30vw, 220px);
+    line-height: 1;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1; transform: none; }

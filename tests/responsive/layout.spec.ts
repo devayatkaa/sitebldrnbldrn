@@ -96,7 +96,12 @@ test('real entry animations do not hide or move controls after tapping', async (
   await firstCard.scrollIntoViewIfNeeded();
   await expect(firstCard).toHaveCSS('opacity', '1');
   await expect(firstCard.locator('video')).toHaveAttribute('autoplay', '');
-  await expect(page.locator('.hero-backdrop')).toHaveAttribute('data-revealed', 'true');
+  const size = page.viewportSize()!;
+  if (size.width <= 767 && size.height > size.width) {
+    await expect(page.locator('.hero-object')).toHaveAttribute('data-revealed', 'true');
+  } else {
+    await expect(page.locator('.hero-backdrop')).toHaveAttribute('data-revealed', 'true');
+  }
 });
 
 test('rotation and portfolio filters retain readable cards', async ({ page }) => {
