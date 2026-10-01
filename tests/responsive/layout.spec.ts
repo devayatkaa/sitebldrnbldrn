@@ -30,7 +30,8 @@ test('readable hero, stable header, cards and about in every viewport', async ({
     expect(overlapX > 0 && overlapY > 0).toBe(false);
   }
   const cat = await page.locator('.hero-object img').boundingBox();
-  expect(cat!.height).toBeGreaterThan(160);
+  const portraitPhone = viewport.width <= 767 && viewport.height > viewport.width;
+  expect(cat!.height).toBeGreaterThan(portraitPhone ? 75 : 160);
   if (viewport.width < 640 && viewport.height >= 568) {
     const firstVideo = await page.locator('video').first().boundingBox();
     expect(firstVideo!.y).toBeLessThan(viewport.height - 25);

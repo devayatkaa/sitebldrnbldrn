@@ -19,6 +19,11 @@ test('portrait EDIT stays below the heading independently of the floating cat', 
     const title = (await page.locator('.hero-title').boundingBox())!;
     const edit = (await page.locator('.hero-mobile-backdrop span').boundingBox())!;
     const fontSize = await page.locator('.hero-mobile-backdrop span').evaluate(node => parseFloat(getComputedStyle(node).fontSize));
+    // Desktop image/text proportions, allowing a small rounding tolerance.
+    expect(cat.width / edit.width).toBeGreaterThan(0.28);
+    expect(cat.width / edit.width).toBeLessThan(0.32);
+    expect(title.width / edit.width).toBeGreaterThan(0.63);
+    expect(title.width / edit.width).toBeLessThan(0.69);
     // The font's empty top bearing needs compensation, proportional to type size.
     expect((edit.y - title.y - title.height) / fontSize).toBeCloseTo(-0.14, 2);
     expect(Math.abs(cat.x + cat.width / 2 - edit.x - edit.width / 2)).toBeLessThan(2);

@@ -219,6 +219,13 @@
 }
 /* Anchor EDIT below the heading, independently of the floating cat. */
 @media (max-width: 767px) and (orientation: portrait) {
+  .hero-content { --hero-unit: min(1vw, 7.33px); }
+  /* Scale the three visual layers together using the approved desktop ratios. */
+  .hero-title { font-size: calc(10.4 * var(--hero-unit)); }
+  .hero-object {
+    width: calc(27.3 * var(--hero-unit));
+    margin-top: calc(1.3 * var(--hero-unit));
+  }
   .hero-backdrop { display: none; }
   .hero-mobile-backdrop {
     display: flex;
@@ -236,7 +243,7 @@
     /* Compensate the display font's top bearing: align visible letters,
        not the line box. Scale the offset with EDIT at every phone width. */
     top: -0.14em;
-    font-size: clamp(104px, 30vw, 220px);
+    font-size: calc(30 * var(--hero-unit));
     line-height: 1;
   }
 }
