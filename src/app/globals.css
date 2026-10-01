@@ -217,23 +217,23 @@
   .video-card-heading { flex-direction: column; align-items: flex-start; }
   .video-card-heading > .video-title-link, .video-card-heading > h3 { flex: none; }
 }
-/* On portrait phones EDIT belongs to the cat, not the entire hero section. */
+/* Anchor EDIT below the heading, independently of the floating cat. */
 @media (max-width: 767px) and (orientation: portrait) {
   .hero-backdrop { display: none; }
   .hero-mobile-backdrop {
     display: flex;
-    position: absolute;
-    inset-block: 0;
-    left: 50%;
+    position: relative;
+    flex: none;
+    height: 0;
     width: calc(100vw - 32px);
-    transform: translateX(-50%);
-    align-items: center;
     justify-content: center;
     pointer-events: none;
     user-select: none;
     color: rgba(255,255,255,0.035);
   }
   .hero-mobile-backdrop span {
+    position: absolute;
+    top: 8px;
     font-size: clamp(104px, 30vw, 220px);
     line-height: 1;
   }

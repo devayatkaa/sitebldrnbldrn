@@ -8,10 +8,10 @@ export default function Hero() {
         <div className="hero-content relative z-10 flex w-full flex-col items-center">
           <p data-reveal data-reveal-delay="60" className="hero-eyebrow mb-4 font-sans uppercase text-white/60">bldrn — видеомонтажёр</p>
           <h1 data-reveal data-reveal-delay="130" className="hero-title font-display font-[900] uppercase tracking-tighter">МОУШН</h1>
+          <div aria-hidden="true" className="hero-mobile-backdrop">
+            <span data-reveal="fade" data-reveal-delay="180" className="font-display font-[900] uppercase tracking-tighter">EDIT</span>
+          </div>
           <div data-reveal data-reveal-delay="220" className="hero-object relative mt-5 flex aspect-square items-center justify-center animate-float">
-            <div aria-hidden="true" className="hero-mobile-backdrop">
-              <span className="font-display font-[900] uppercase tracking-tighter">EDIT</span>
-            </div>
             <div aria-hidden="true" className="absolute inset-4 rounded-full bg-emerald-200/10 blur-3xl" />
             <img
               src="https://pub-1da93a6fafd14fe684660a2ca5bc384a.r2.dev/bg-object.png"
