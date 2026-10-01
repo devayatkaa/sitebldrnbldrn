@@ -39,7 +39,7 @@ export default function AboutMe({ lang = 'RU' }: AboutMeProps) {
       </div>
       <div className="surface-panel about-panel relative overflow-hidden rounded-[24px] md:rounded-[32px]">
 
-        <div className="relative flex flex-col items-center gap-6 px-5 py-8 sm:p-8 md:gap-10 md:p-12 lg:flex-row lg:items-start">
+        <div className="about-layout relative flex flex-col items-center gap-6 px-5 py-8 sm:p-8 md:gap-10 md:p-12 lg:flex-row lg:items-start">
 
           {/* Avatar */}
           <div data-reveal className="about-portrait relative z-10 flex-shrink-0">
@@ -67,7 +67,7 @@ export default function AboutMe({ lang = 'RU' }: AboutMeProps) {
           </div>
 
           {/* Content */}
-          <div className="relative z-10 flex min-w-0 flex-grow flex-col items-center space-y-6 text-center md:space-y-10 lg:items-start lg:text-left">
+          <div className="about-content relative z-10 flex min-w-0 flex-grow flex-col items-center space-y-6 text-center md:space-y-10 lg:items-start lg:text-left">
 
             {/* Text */}
             <div className="space-y-4 md:space-y-6">

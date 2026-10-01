@@ -41,12 +41,12 @@ export default function VideoCard({ project }: VideoCardProps) {
           </a>
         )}
       </div>
-      <div className="flex flex-col gap-2.5 px-2 md:px-4">
+      <div className="video-card-details flex flex-col gap-2.5 px-2 md:px-4">
         <div className="flex items-center gap-3 text-white/40">
           <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40 md:text-[11px]">{project.category}</span>
           <div className="h-px flex-1 bg-white/10" />
         </div>
-        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+        <div className="video-card-heading flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
           {project.youtubeUrl ? (
             <a
               href={project.youtubeUrl}
