@@ -19,16 +19,21 @@ test('portrait EDIT stays below the heading independently of the floating cat', 
     const title = (await page.locator('.hero-title').boundingBox())!;
     const edit = (await page.locator('.hero-mobile-backdrop span').boundingBox())!;
     const fontSize = await page.locator('.hero-mobile-backdrop span').evaluate(node => parseFloat(getComputedStyle(node).fontSize));
-    // Desktop image/text proportions, allowing a small rounding tolerance.
-    expect(cat.width / edit.width).toBeGreaterThan(0.28);
-    expect(cat.width / edit.width).toBeLessThan(0.32);
-    expect(title.width / edit.width).toBeGreaterThan(0.63);
-    expect(title.width / edit.width).toBeLessThan(0.69);
+    // Keep the subject substantial and the backdrop tall enough to sit behind it.
+    expect(cat.width).toBeGreaterThan(150);
+    expect(cat.width / edit.width).toBeGreaterThan(0.55);
+    expect(cat.width / edit.width).toBeLessThan(0.65);
+    expect(edit.height / cat.height).toBeGreaterThan(0.9);
+    expect(title.width / edit.width).toBeGreaterThan(0.7);
+    expect(title.width / edit.width).toBeLessThan(0.8);
     // The font's empty top bearing needs compensation, proportional to type size.
-    expect((edit.y - title.y - title.height) / fontSize).toBeCloseTo(-0.14, 2);
+    expect((edit.y - title.y - title.height) / fontSize).toBeCloseTo(-0.23, 2);
     expect(Math.abs(cat.x + cat.width / 2 - edit.x - edit.width / 2)).toBeLessThan(2);
     expect(edit.x).toBeGreaterThanOrEqual(0);
     expect(edit.x + edit.width).toBeLessThanOrEqual(size.width);
+    if ([320, 393, 430].includes(size.width)) {
+      await page.screenshot({ path: info.outputPath(`portrait-${size.width}.png`) });
+    }
   }
   await page.setViewportSize(viewport);
   await page.screenshot({ path: info.outputPath('portrait-hero.png') });
