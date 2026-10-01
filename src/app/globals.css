@@ -217,19 +217,20 @@
   .video-card-heading { flex-direction: column; align-items: flex-start; }
   .video-card-heading > .video-title-link, .video-card-heading > h3 { flex: none; }
 }
-/* Anchor EDIT below the heading, independently of the floating cat. */
+/* Portrait artwork: natural lettering overlaps behind the title, independently of the cat. */
 @media (max-width: 767px) and (orientation: portrait) {
   .hero-content { --hero-unit: min(1vw, 5.4px); }
-  /* A phone needs a prominent subject and a taller backdrop, not a desktop thumbnail. */
-  .hero-title { font-size: calc(12 * var(--hero-unit)); }
+  .hero-title { position: relative; z-index: 2; font-size: calc(12 * var(--hero-unit)); }
   .hero-object {
     width: calc(54 * var(--hero-unit));
     margin-top: 0;
+    z-index: 1;
   }
   .hero-backdrop { display: none; }
   .hero-mobile-backdrop {
     display: flex;
     position: relative;
+    z-index: 0;
     flex: none;
     height: 0;
     width: calc(100vw - 32px);
@@ -240,13 +241,10 @@
   }
   .hero-mobile-backdrop span {
     position: absolute;
-    /* Compensate the display font's top bearing: align visible letters,
-       not the line box. Scale the offset with EDIT at every phone width. */
-    top: -0.23em;
+    /* Overlap the visible glyphs with the bottom of the foreground title. */
+    top: -0.36em;
     font-size: calc(30 * var(--hero-unit));
     line-height: 1;
-    scale: 1 1.6;
-    transform-origin: top center;
   }
 }
 @media (prefers-reduced-motion: reduce) {

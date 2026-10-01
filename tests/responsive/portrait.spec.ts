@@ -19,15 +19,25 @@ test('portrait EDIT stays below the heading independently of the floating cat', 
     const title = (await page.locator('.hero-title').boundingBox())!;
     const edit = (await page.locator('.hero-mobile-backdrop span').boundingBox())!;
     const fontSize = await page.locator('.hero-mobile-backdrop span').evaluate(node => parseFloat(getComputedStyle(node).fontSize));
-    // Keep the subject substantial and the backdrop tall enough to sit behind it.
+    // Keep the cat substantial without distorting the backdrop lettering.
     expect(cat.width).toBeGreaterThan(150);
     expect(cat.width / edit.width).toBeGreaterThan(0.55);
     expect(cat.width / edit.width).toBeLessThan(0.65);
-    expect(edit.height / cat.height).toBeGreaterThan(0.9);
+    await expect(page.locator('.hero-mobile-backdrop span')).toHaveCSS('scale', 'none');
     expect(title.width / edit.width).toBeGreaterThan(0.7);
     expect(title.width / edit.width).toBeLessThan(0.8);
-    // The font's empty top bearing needs compensation, proportional to type size.
-    expect((edit.y - title.y - title.height) / fontSize).toBeCloseTo(-0.23, 2);
+    expect(edit.y).toBeLessThan(title.y + title.height);
+    // Check actual glyph ink, not only the font's line box, overlaps the heading.
+    const ink = await page.locator('.hero-mobile-backdrop span').evaluate(node => {
+      const style = getComputedStyle(node);
+      const context = document.createElement('canvas').getContext('2d')!;
+      context.font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+      const metrics = context.measureText('EDIT');
+      const leading = (parseFloat(style.lineHeight) - metrics.fontBoundingBoxAscent - metrics.fontBoundingBoxDescent) / 2;
+      return node.getBoundingClientRect().top + leading + metrics.fontBoundingBoxAscent - metrics.actualBoundingBoxAscent;
+    });
+    expect(ink).toBeLessThan(title.y + title.height - fontSize * 0.1);
+    expect(ink).toBeGreaterThan(title.y + title.height * 0.4);
     expect(Math.abs(cat.x + cat.width / 2 - edit.x - edit.width / 2)).toBeLessThan(2);
     expect(edit.x).toBeGreaterThanOrEqual(0);
     expect(edit.x + edit.width).toBeLessThanOrEqual(size.width);
