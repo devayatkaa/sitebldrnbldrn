@@ -233,7 +233,9 @@
   }
   .hero-mobile-backdrop span {
     position: absolute;
-    top: 8px;
+    /* Compensate the display font's top bearing: align visible letters,
+       not the line box. Scale the offset with EDIT at every phone width. */
+    top: -0.14em;
     font-size: clamp(104px, 30vw, 220px);
     line-height: 1;
   }

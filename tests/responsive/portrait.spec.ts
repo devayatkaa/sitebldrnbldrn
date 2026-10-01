@@ -6,18 +6,24 @@ test('portrait EDIT stays below the heading independently of the floating cat', 
   await page.goto('/');
   await page.evaluate(() => document.fonts.ready);
   await page.locator('.hero-object img').evaluate((img: HTMLImageElement) => img.decode());
-  for (const height of [viewport.height, Math.max(viewport.width + 80, viewport.height - 120)]) {
-    await page.setViewportSize({ width: viewport.width, height });
+  const sizes = [
+    ...[320, 360, 375, 384, 393, 412, 430, 480, 600, 767].map(width => ({ width, height: Math.max(851, width + 120) })),
+    viewport,
+    { width: viewport.width, height: Math.max(viewport.width + 80, viewport.height - 120) },
+  ];
+  for (const size of sizes) {
+    await page.setViewportSize(size);
     await expect(page.locator('.hero-backdrop')).toBeHidden();
     await expect(page.locator('.hero-mobile-backdrop span')).toBeVisible();
     const cat = (await page.locator('.hero-object img').boundingBox())!;
     const title = (await page.locator('.hero-title').boundingBox())!;
     const edit = (await page.locator('.hero-mobile-backdrop span').boundingBox())!;
-    expect(edit.y - title.y - title.height).toBeGreaterThanOrEqual(7);
-    expect(edit.y - title.y - title.height).toBeLessThanOrEqual(9);
+    const fontSize = await page.locator('.hero-mobile-backdrop span').evaluate(node => parseFloat(getComputedStyle(node).fontSize));
+    // The font's empty top bearing needs compensation, proportional to type size.
+    expect((edit.y - title.y - title.height) / fontSize).toBeCloseTo(-0.14, 2);
     expect(Math.abs(cat.x + cat.width / 2 - edit.x - edit.width / 2)).toBeLessThan(2);
     expect(edit.x).toBeGreaterThanOrEqual(0);
-    expect(edit.x + edit.width).toBeLessThanOrEqual(viewport.width);
+    expect(edit.x + edit.width).toBeLessThanOrEqual(size.width);
   }
   await page.setViewportSize(viewport);
   await page.screenshot({ path: info.outputPath('portrait-hero.png') });
