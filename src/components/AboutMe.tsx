@@ -29,30 +29,28 @@ export default function AboutMe({ lang = 'RU' }: AboutMeProps) {
   return (
     <section
       id="about"
-      className="py-16 md:py-32 px-6 md:px-12 lg:px-24 max-w-[1400px] mx-auto scroll-mt-32"
+      className="relative py-12 md:py-24 px-4 sm:px-6 md:px-12 lg:px-24 max-w-[1400px] mx-auto scroll-mt-32"
     >
-      <div className="relative overflow-hidden rounded-[32px] md:rounded-[48px] border border-white/[0.08] bg-[#11141a]/90 shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 select-none">
+        <span className="ambient-star absolute left-[12%] top-5 text-sm md:top-10">✦</span>
+        <span className="ambient-star absolute right-[16%] top-7 text-[10px] md:top-12">✦</span>
+        <span className="ambient-star absolute bottom-3 left-[22%] text-[10px] md:bottom-8">✦</span>
+        <span className="ambient-star absolute bottom-5 right-[10%] text-base md:bottom-12">✦</span>
+      </div>
+      <div className="surface-panel about-panel relative overflow-hidden rounded-[24px] md:rounded-[32px]">
 
-        {/* Green glow */}
-        <div
-          className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-[#1a1030] opacity-40 blur-[80px] pointer-events-none"
-        />
-
-        {/* Subtle highlight */}
-        <div
-          className="absolute inset-0 rounded-[32px] md:rounded-[48px] border border-white/[0.04] pointer-events-none"
-        />
-
-        <div className="relative flex flex-col items-center gap-8 p-6 md:gap-12 md:p-16 lg:flex-row lg:items-start">
+        <div className="relative flex flex-col items-center gap-6 px-5 py-8 sm:p-8 md:gap-10 md:p-12 lg:flex-row lg:items-start">
 
           {/* Avatar */}
-          <div className="relative z-10 flex-shrink-0">
-            <div className="relative flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border border-white/15 bg-white/5 shadow-[0_0_40px_rgba(30,140,90,0.15)] md:h-44 md:w-44">
+          <div data-reveal className="about-portrait relative z-10 flex-shrink-0">
+            <div className="relative flex h-28 w-28 items-center justify-center overflow-hidden rounded-full border border-white/15 bg-white/5 md:h-44 md:w-44">
 
               <img
                 src="https://pub-1da93a6fafd14fe684660a2ca5bc384a.r2.dev/profile.png"
                 alt="Avatar"
-                className="h-full w-full object-cover opacity-90"
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover"
               />
 
               <User
@@ -69,23 +67,23 @@ export default function AboutMe({ lang = 'RU' }: AboutMeProps) {
           </div>
 
           {/* Content */}
-          <div className="relative z-10 flex flex-grow flex-col items-center space-y-6 text-center md:space-y-10 lg:items-start lg:text-left">
+          <div className="relative z-10 flex min-w-0 flex-grow flex-col items-center space-y-6 text-center md:space-y-10 lg:items-start lg:text-left">
 
             {/* Text */}
             <div className="space-y-4 md:space-y-6">
 
-              <span className="inline-block rounded-full border border-white/10 bg-white/[0.08] px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white/60 md:text-[12px]">
+              <span data-reveal data-reveal-delay="60" className="inline-block rounded-full border border-white/10 bg-white/[0.08] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/60 md:text-[12px]">
                 {lang === 'RU' ? 'BLADERUNNER' : 'about me'}
               </span>
 
-              <h2 className="text-4xl font-bold tracking-tighter text-white md:text-7xl">
+              <h2 data-reveal data-reveal-delay="120" className="about-title font-sans font-semibold tracking-tight text-white">
                 {lang === 'RU' ? 'я' : "I'm"}
-                <span className="font-light italic text-white/70 ml-3">
+                <span className="font-normal text-[#d0d1d5] ml-2">
                   Александр
                 </span>
               </h2>
 
-              <p className="max-w-2xl text-base font-light leading-relaxed text-white/50 md:text-2xl">
+              <p data-reveal data-reveal-delay="180" className="max-w-[36rem] text-base font-normal leading-relaxed text-[#aeb0b8] md:text-xl">
                 {lang === 'RU'
                   ? 'Работаю в разных сферах с разными авторами, основное направление развлекательный контент'
                   : 'I specialize in dense, structured storytelling. My approach is a focus on clarity, rhythm, and intention.'}
@@ -93,22 +91,28 @@ export default function AboutMe({ lang = 'RU' }: AboutMeProps) {
 
             </div>
 
+            <div data-reveal data-reveal-delay="240" className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-[10px] uppercase tracking-[0.18em] text-white/40 lg:justify-start">
+              <span className="whitespace-nowrap">After Effects</span>
+              <span aria-hidden="true" className="text-white/20">/</span>
+              <span className="whitespace-nowrap">Premiere Pro</span>
+            </div>
+
             {/* Buttons */}
-            <div className="flex flex-wrap justify-center gap-3 pt-2 md:gap-4 lg:justify-start">
+            <div data-reveal data-reveal-delay="300" className="about-actions flex w-full flex-wrap justify-center gap-3 border-t border-white/[0.08] pt-6 md:gap-4 lg:justify-start">
 
               {/* Telegram */}
               <a
                 href={telegram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-14 items-center gap-3 rounded-full border border-white/10 bg-white/[0.06] px-7 transition-all duration-300 hover:border-[#229ED9]/40 hover:bg-[#229ED9]/10 md:h-16 md:gap-4 md:px-8"
+                className="surface-control group flex h-12 items-center justify-center gap-3 rounded-full px-5 transition-colors duration-300 md:h-14 md:gap-4 md:px-7"
               >
                 <Send
                   size={20}
                   className="text-[#229ED9]"
                 />
 
-                <span className="text-[12px] font-bold uppercase tracking-wider text-white/90 md:text-[13px]">
+                <span className="text-[12px] font-semibold uppercase tracking-wider text-white/90 md:text-[13px]">
                   Телеграм
                 </span>
               </a>
@@ -118,14 +122,14 @@ export default function AboutMe({ lang = 'RU' }: AboutMeProps) {
 
                 <a
                   href={'mailto:' + email}
-                  className="group flex h-14 items-center gap-3 rounded-full border border-white/10 bg-white/[0.06] px-7 transition-all duration-300 hover:bg-white/10 md:h-16 md:gap-4"
+                  className="surface-control group flex h-12 items-center justify-center gap-3 rounded-full px-5 transition-colors duration-300 md:h-14 md:gap-4"
                 >
                   <Mail
                     size={20}
                     className="text-white/50 transition-colors group-hover:text-white"
                   />
 
-                  <span className="text-[12px] font-bold uppercase tracking-wider text-white/90 md:text-[13px]">
+                  <span className="text-[12px] font-semibold uppercase tracking-wider text-white/90 md:text-[13px]">
                     Почта
                   </span>
                 </a>
@@ -139,7 +143,7 @@ export default function AboutMe({ lang = 'RU' }: AboutMeProps) {
                       ? 'Скопировать email'
                       : 'Copy email'
                   }
-                  className="group relative flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] transition-all duration-300 hover:bg-white/10 md:h-16 md:w-16"
+                  className="surface-control group relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition-colors duration-300 md:h-14 md:w-14"
                 >
                   {copied ? (
                     <Check

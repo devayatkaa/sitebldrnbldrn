@@ -1,47 +1,84 @@
 'use client';
-import React from 'react';
+
+import type { Project } from '../data/projects';
+
+
+const youtubeIcon = 'https://pub-1da93a6fafd14fe684660a2ca5bc384a.r2.dev/yutube.png';
+
 interface VideoCardProps {
-  project: {
-    id: string;
-    title: string;
-    category: string;
-    videoUrl: string;
-    poster: string;
-  };
-  delayClass?: string;
-  onOpen?: (project: any) => void;
+  project: Project;
 }
-export default function VideoCard({ project, delayClass }: VideoCardProps) {
+
+export default function VideoCard({ project }: VideoCardProps) {
+  const linkLabel = `Смотреть «${project.title}» на YouTube (в новой вкладке)`;
+  const youtubeLabel = project.youtubeLabel ? `${project.youtubeLabel} просмотров` : 'Смотреть на YouTube';
+
   return (
-    <div className={`flex flex-col gap-3 md:gap-4 group reveal-hidden transform-gpu will-change-[transform,opacity] ${delayClass}`}>
-      
-      <div className="relative aspect-video rounded-[24px] md:rounded-[32px] overflow-hidden bg-white/5 border border-white/10 shadow-2xl transition-all duration-700">
+    <article className="video-card group flex flex-col gap-4">
+      <div className="video-card-preview relative aspect-video overflow-hidden rounded-[20px] border border-white/10 bg-white/5 md:rounded-[24px]">
         <video
           src={project.videoUrl}
-          poster={project.poster}
+          poster={project.poster || undefined}
+          aria-label={`Превью: ${project.title}`}
           autoPlay
           muted
           loop
           playsInline
           preload="metadata"
-          className="w-full h-full object-cover pointer-events-none transition-all duration-1000 grayscale-[0.2] opacity-90 group-hover:opacity-100 group-hover:grayscale-0"
+          className="h-full w-full object-cover pointer-events-none"
         />
-        <div className="absolute inset-0 pointer-events-none bg-black opacity-10 group-hover:opacity-0 transition-opacity duration-700"></div>
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/[0.05] to-transparent opacity-40"></div>
+        {project.youtubeUrl && (
+          <a
+            href={project.youtubeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={linkLabel}
+            className="video-youtube-overlay absolute inset-0 flex items-center justify-center bg-black/[0.08]"
+          >
+            <span className="video-youtube-button flex h-12 w-12 items-center justify-center rounded-full bg-black/40">
+              <img src={youtubeIcon} alt="" width={28} height={20} className="h-5 w-7 object-contain" />
+            </span>
+          </a>
+        )}
       </div>
-      
-      {/* Подпись */}
-      <div className="px-2 md:px-4 flex flex-col gap-1.5 md:gap-2">
-        <div className="flex items-center gap-3">
-          <span className="font-sans text-[11px] md:text-[12px] uppercase tracking-[0.2em] md:tracking-[0.25em] text-white/50 font-semibold">
-            {project.category}
-          </span>
-          <div className="h-[1px] flex-1 bg-white/10 self-center"></div>
+      <div className="flex flex-col gap-2.5 px-2 md:px-4">
+        <div className="flex items-center gap-3 text-white/40">
+          <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40 md:text-[11px]">{project.category}</span>
+          <div className="h-px flex-1 bg-white/10" />
         </div>
-        <h3 className="font-display text-lg md:text-2xl font-medium tracking-tight text-white/90 group-hover:text-white transition-colors duration-500">
-          {project.title}
-        </h3>
+        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+          {project.youtubeUrl ? (
+            <a
+              href={project.youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={linkLabel}
+              className="video-title-link min-w-0"
+            >
+              <h3 className="font-display text-xl font-semibold tracking-tight text-white/90 transition-colors group-hover:text-white md:text-2xl">
+                {project.title}
+              </h3>
+            </a>
+          ) : (
+            <h3 className="font-display text-xl font-semibold tracking-tight text-white/90 transition-colors group-hover:text-white md:text-2xl">
+              {project.title}
+            </h3>
+          )}
+          {project.youtubeUrl && (
+            <a
+              href={project.youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${linkLabel}: ${youtubeLabel}`}
+              title={youtubeLabel}
+              className="video-youtube-caption inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap rounded-sm text-[11px] font-medium tabular-nums text-white/50 transition-colors hover:text-white"
+            >
+              <img src={youtubeIcon} alt="" width={20} height={15} className="h-4 w-5 object-contain" />
+              <span>{youtubeLabel}</span>
+            </a>
+          )}
+        </div>
       </div>
-    </div>
+    </article>
   );
 }

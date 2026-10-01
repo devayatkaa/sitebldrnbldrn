@@ -2,6 +2,216 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Keep the original CSS reveal: no paused Web Animations or media-event gates. */
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0);
+  transition: opacity 1000ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1000ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-reveal][data-revealed="true"] { opacity: 1; transform: translate3d(0, 0, 0); }
+[data-reveal="fade"], .hero-object[data-reveal] { transform: none; transition-property: opacity; }
+[data-reveal-delay="60"] { transition-delay: 60ms; }
+[data-reveal-delay="80"] { transition-delay: 80ms; }
+[data-reveal-delay="120"] { transition-delay: 120ms; }
+[data-reveal-delay="130"] { transition-delay: 130ms; }
+[data-reveal-delay="150"] { transition-delay: 150ms; }
+[data-reveal-delay="180"] { transition-delay: 180ms; }
+[data-reveal-delay="220"] { transition-delay: 220ms; }
+[data-reveal-delay="240"] { transition-delay: 240ms; }
+[data-reveal-delay="300"] { transition-delay: 300ms; }
+[data-reveal-delay="320"] { transition-delay: 320ms; }
+[data-reveal]:focus-within { opacity: 1; transition-delay: 0ms; }
+
+/* Expose the opening frames quickly while retaining the gentle card movement. */
+[data-reveal="video"] {
+  transition: opacity 350ms ease-out,
+              transform 1000ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0ms;
+}
+
+/* Header controls stay visible after entry, independently of menu state. */
+.header-enter { animation: header-enter 1000ms cubic-bezier(0.16, 1, 0.3, 1) backwards; }
+.header-enter-delayed { animation-delay: 80ms; }
+@keyframes header-enter {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Opaque surfaces keep a consistent colour over every part of the backdrop. */
+.surface-panel,
+.surface-control {
+  border: 1px solid rgba(228, 235, 239, 0.12);
+  background-color: #1c2027;
+  background-image: linear-gradient(145deg, rgba(255,255,255,0.035), transparent 65%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.045), 0 8px 24px -16px rgba(0,0,0,0.5);
+}
+.about-panel {
+  background-color: #11141a;
+  background-image: radial-gradient(ellipse at 100% 0%, rgba(85,65,115,0.12), transparent 60%),
+    linear-gradient(135deg, rgba(104,144,124,0.045), transparent 45%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.025), 0 20px 60px -30px rgba(0,0,0,0.4);
+}
+.about-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(198,214,205,0.3), rgba(194,184,211,0.2), transparent);
+  pointer-events: none;
+}
+.about-portrait { padding: 6px; border: 1px solid rgba(255,255,255,0.06); border-radius: 50%; }
+.hero-star, .ambient-star {
+  pointer-events: none;
+  user-select: none;
+  color: #d9e4df;
+  opacity: 0.3;
+  text-shadow: 0 0 10px rgba(219,235,226,0.45);
+  animation: star-shimmer 5.8s ease-in-out infinite;
+}
+.hero-star:nth-of-type(2), .ambient-star:nth-child(2) { animation-delay: -2.3s; animation-duration: 7s; }
+.hero-star:nth-of-type(3), .ambient-star:nth-child(3) { animation-delay: -4.1s; animation-duration: 6.4s; }
+.hero-star:nth-of-type(4), .ambient-star:nth-child(4) { animation-delay: -1.2s; animation-duration: 8s; }
+@keyframes star-shimmer {
+  0%, 100% { opacity: 0.2; transform: scale(0.88); }
+  48% { opacity: 0.65; transform: scale(1.12); }
+  65% { opacity: 0.35; transform: scale(1); }
+}
+.contact-dropdown { background-color: #171b22; max-width: calc(100vw - 32px); }
+.site-header { top: max(16px, env(safe-area-inset-top)); }
+.hero-composition {
+  height: min(760px, calc(100vh - 108px));
+  height: min(760px, calc(100svh - 108px));
+  min-height: 410px;
+  padding-top: 92px;
+  padding-bottom: 12px;
+}
+.hero-content { flex: 1; min-height: 0; }
+.hero-content > .hero-eyebrow, .hero-title, .hero-caption { flex-shrink: 0; }
+.hero-caption { margin-top: 12px; gap: 12px; }
+.hero-rule { width: 56px; height: 1px; background: linear-gradient(90deg, transparent, rgba(218,229,223,0.6), transparent); }
+.hero-eyebrow { font-size: clamp(10px, 1vw, 12px); letter-spacing: 0.24em; }
+.hero-title {
+  font-size: clamp(44px, 13.3vw, 144px);
+  line-height: 1.12;
+  color: #f3f5f5;
+  background: linear-gradient(175deg, #ffffff 15%, #f1f3f2 48%, #bfc6c5 78%, #9693a6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 16px rgba(215,231,255,0.12));
+}
+.hero-object { width: clamp(216px, 58vw, 340px); flex: 1 1 0; min-height: 64px; max-height: 340px; aspect-ratio: auto; margin-top: 12px; }
+.hero-object img { max-height: 100%; object-fit: contain; }
+.hero-backdrop span { font-size: clamp(112px, 32vw, 480px); }
+.hero-tagline { max-width: 32rem; font-size: clamp(16px, 2.4vw, 24px); line-height: 1.375; letter-spacing: normal; text-wrap: balance; }
+.pearl-text {
+  color: #e5e5f2;
+  background: linear-gradient(110deg, #fff 5%, #e1f0e8 45%, #d9c9f0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.about-title { font-size: clamp(28px, 5.2vw, 64px); line-height: 1.2; }
+.video-card h3 { font-family: var(--font-sans), sans-serif; font-weight: 600; letter-spacing: -0.035em; font-size: clamp(19px, 1.8vw, 24px); }
+.video-card-preview { box-shadow: 0 10px 30px -22px rgba(0,0,0,0.5); }
+@media (hover: hover) {
+  .surface-control:hover { border-color: rgba(228,235,239,0.24); background-color: #272c34; }
+}
+.surface-control[aria-expanded="true"] { background-color: #272c34; border-color: rgba(228,235,239,0.24); }
+.surface-control:active { background-color: #303640; }
+@media (min-width: 768px) {
+  .site-header { top: max(32px, env(safe-area-inset-top)); }
+  .hero-composition { padding: 80px 24px 20px; }
+  .hero-eyebrow { margin-bottom: 12px; font-size: 12px; letter-spacing: 0.4em; color: rgba(255,255,255,0.4); }
+  .hero-title { font-size: min(9vw, 16svh); line-height: 1; }
+  .hero-object { width: 300px; margin-top: 16px; }
+  .hero-backdrop span { font-size: 26vw; color: rgba(255,255,255,0.025); }
+  .hero-caption { margin-top: 16px; gap: 16px; }
+  .hero-tagline { max-width: 32rem; font-size: 24px; }
+}
+@media (min-width: 1024px) {
+  .hero-object { width: 340px; }
+}
+@media (max-height: 560px) and (orientation: landscape) {
+  .hero-composition { min-height: 270px; padding-top: 72px; padding-bottom: 8px; }
+  .hero-eyebrow { margin-bottom: 6px; font-size: 9px; }
+  .hero-title { font-size: 10svh; }
+  .hero-object { min-height: 40px; margin-top: 4px; }
+  .hero-caption { margin-top: 4px; gap: 6px; }
+  .hero-tagline { max-width: 32rem; font-size: 15px; }
+}
+@media (max-width: 767px) {
+  .hero-tagline { max-width: 320px; padding-inline: 8px; }
+  .hero-star { font-size: 10px; }
+  .video-youtube-overlay { background: transparent; align-items: flex-end; justify-content: flex-end; padding: 12px; }
+  .video-youtube-button { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); }
+  .video-youtube-caption { font-size: 10px; }
+  .about-actions > a { flex: 1 1 100%; }
+  .about-actions > div { width: 100%; }
+  .about-actions > div > a { flex: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; }
+  *, *::before, *::after { animation: none !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
+
+header a:focus-visible,
+header button:focus-visible,
+#about a:focus-visible,
+#about button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.7);
+  outline-offset: 4px;
+}
+
+.video-card-preview {
+  transition: border-color 250ms ease;
+}
+.video-card:hover .video-card-preview,
+.video-card:focus-within .video-card-preview {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.video-youtube-overlay {
+  transition: opacity 300ms ease;
+}
+.video-youtube-button {
+  transition: background-color 250ms ease;
+}
+.video-youtube-overlay:hover .video-youtube-button,
+.video-youtube-overlay:focus-visible .video-youtube-button,
+.video-card:focus-within .video-youtube-button {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.video-youtube-overlay:focus-visible,
+.video-youtube-caption:focus-visible,
+.video-title-link:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.86);
+  outline-offset: 4px;
+}
+.video-title-link {
+  border-radius: 12px;
+}
+.video-youtube-overlay:focus-visible {
+  outline-offset: -4px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .video-youtube-overlay {
+    opacity: 0;
+  }
+  .video-card-preview:hover .video-youtube-overlay,
+  .video-card:focus-within .video-youtube-overlay {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .video-card *,
+  .video-card-preview {
+    transition: none !important;
+  }
+}
+
 @layer base {
   /* Базовые настройки документа */
   html, body {
@@ -15,7 +225,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
+
+  button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 
   ::selection {
     background: rgba(13, 43, 29, 0.5);
@@ -70,29 +284,6 @@
     color: transparent;
   }
 
-  /* --- ЛОГИКА ПОЯВЛЕНИЯ (SCROLL REVEAL) --- */
-
-  .reveal-hidden {
-    opacity: 0;
-    transform: translateY(30px);
-    /* "Дорогая" плавная функция Apple */
-    transition: opacity 1000ms cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 1000ms cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform, opacity;
-  }
-
-  .reveal-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Задержки для последовательного появления */
-  .delay-150 { transition-delay: 150ms; }
-  .delay-300 { transition-delay: 300ms; }
-  .delay-450 { transition-delay: 450ms; }
-  .delay-600 { transition-delay: 600ms; }
-  .delay-750 { transition-delay: 750ms; }
-  .delay-900 { transition-delay: 900ms; }
 }
 
 /* Стилизация скроллбара */
@@ -108,8 +299,4 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #262626;
-}
-.reveal-hidden {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
