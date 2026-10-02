@@ -19,18 +19,18 @@ test('readable hero, stable header, cards and about in every viewport', async ({
   await page.goto('/');
   await page.evaluate(() => document.fonts.ready);
   const viewport = page.viewportSize()!;
-  await expect(page.locator('.hero-object img')).toBeVisible();
-  await expect.poll(() => page.locator('.hero-object img').evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
-  await page.locator('.hero-object img').evaluate((img: HTMLImageElement) => img.decode());
-  await checkTextBounds(page, '.hero-title, .hero-eyebrow, .hero-tagline');
-  const eyebrow = (await page.locator('.hero-eyebrow').boundingBox())!;
+  await expect(page.locator('.mobile-cat img')).toBeVisible();
+  await expect.poll(() => page.locator('.mobile-cat img').evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
+  await page.locator('.mobile-cat img').evaluate((img: HTMLImageElement) => img.decode());
+  await checkTextBounds(page, '.mobile-motion-title, .mobile-hero-eyebrow, .mobile-hero-tagline');
+  const eyebrow = (await page.locator('.mobile-hero-eyebrow').boundingBox())!;
   for (const control of await page.locator('.site-header .header-enter').all()) {
     const box = (await control.boundingBox())!;
     const overlapX = Math.min(box.x + box.width, eyebrow.x + eyebrow.width) - Math.max(box.x, eyebrow.x);
     const overlapY = Math.min(box.y + box.height, eyebrow.y + eyebrow.height) - Math.max(box.y, eyebrow.y);
     expect(overlapX > 0 && overlapY > 0).toBe(false);
   }
-  const cat = await page.locator('.hero-object img').boundingBox();
+  const cat = await page.locator('.mobile-cat img').boundingBox();
   const portraitPhone = viewport.width <= 767 && viewport.height > viewport.width;
   expect(cat!.height).toBeGreaterThan(portraitPhone ? 75 : 160);
   if (viewport.width < 640 && viewport.height >= 568) {
@@ -83,7 +83,7 @@ test('real entry animations do not hide or move controls after tapping', async (
   const contacts = page.getByRole('button', { name: 'Контакты', exact: true });
   await expect(logo).toHaveCSS('opacity', '1');
   await expect(contacts).toHaveCSS('opacity', '1');
-  await expect(page.locator('.hero-title')).toHaveCSS('opacity', '1');
+  await expect(page.locator('.mobile-motion-title')).toHaveCSS('opacity', '1');
   const logoBefore = (await logo.boundingBox())!;
   const contactBefore = (await contacts.boundingBox())!;
   for (let i = 0; i < 3; i++) {
@@ -101,7 +101,7 @@ test('real entry animations do not hide or move controls after tapping', async (
   await expect(firstCard.locator('video')).toHaveAttribute('autoplay', '');
   const size = page.viewportSize()!;
   if (size.width <= 1023) {
-    await expect(page.locator('.hero-object')).toHaveAttribute('data-revealed', 'true');
+    await expect(page.locator('.mobile-cat')).toHaveAttribute('data-revealed', 'true');
   } else {
     await expect(page.locator('.hero-backdrop')).toHaveAttribute('data-revealed', 'true');
   }
@@ -112,7 +112,7 @@ test('rotation and portfolio filters retain readable cards', async ({ page }) =>
   await page.evaluate(() => document.fonts.ready);
   const original = page.viewportSize()!;
   await page.setViewportSize({ width: original.height, height: original.width });
-  await checkTextBounds(page, '.hero-title, .hero-tagline');
+  await checkTextBounds(page, '.mobile-motion-title, .mobile-hero-tagline');
   await page.setViewportSize(original);
   await page.goto('/portfolio');
   await page.getByRole('button', { name: 'UI Стиль', exact: true }).click();
