@@ -189,7 +189,7 @@
     min-width: 0;
     justify-items: center;
     gap: clamp(8px, 2vw, 14px);
-    overflow: clip;
+    overflow: visible;
   }
   .hero-title { position: relative; z-index: 2; font-size: clamp(34px, 12cqw, 64px); line-height: 1.12; white-space: nowrap; }
   .hero-object {
@@ -218,7 +218,8 @@
     user-select: none;
     color: rgba(255,255,255,0.035);
   }
-  .hero-mobile-backdrop span { flex: none; font-size: 42cqw; line-height: 1; white-space: nowrap; }
+  /* Fit the complete word inside the artwork instead of cropping E and T. */
+  .hero-mobile-backdrop span { flex: none; font-size: 33cqw; line-height: 1; white-space: nowrap; }
   .about-title { font-size: clamp(28px, 5vw, 42px); line-height: 1.25; overflow-wrap: anywhere; }
   .about-content { width: 100%; }
   .about-content > div { max-width: 100%; }

@@ -8,6 +8,9 @@ test('mobile composition survives rotation, browser chrome and longer text', asy
   const original = page.viewportSize()!;
   const sizes = [original, { width: original.height, height: original.width }, original,
     { ...original, height: Math.max(300, original.height - 100) }];
+  if (info.project.name === 'android-393x873') {
+    sizes.push(...[384, 400, 420].map(width => ({ width, height: 873 })));
+  }
   for (const size of sizes) {
     await page.setViewportSize(size);
     if (size.width > 1023) continue;
@@ -28,6 +31,9 @@ test('mobile composition survives rotation, browser chrome and longer text', asy
       }
       const art = rect('.hero-art');
       const edit = rect('.hero-mobile-backdrop span');
+      if (edit.left < art.left || edit.right > art.right) errors.push('EDIT letters extend outside the artwork');
+      if (edit.left < 0 || edit.right > innerWidth) errors.push('EDIT letters extend outside the screen');
+      if (getComputedStyle(document.querySelector('.hero-art')!).overflow !== 'visible') errors.push('Artwork can clip EDIT');
       if (Math.abs(edit.left + edit.width / 2 - art.left - art.width / 2) > 1) errors.push('EDIT is off centre');
       if (getComputedStyle(document.querySelector('.hero-mobile-backdrop span')!).scale !== 'none') errors.push('Distorted lettering');
       return errors;
