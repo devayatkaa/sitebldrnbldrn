@@ -31,14 +31,14 @@ test('mobile composition survives rotation, browser chrome and longer text', asy
       }
       const art = rect('.hero-art');
       const edit = rect('.hero-mobile-backdrop span');
-      if (Math.abs(edit.top + edit.height / 2 - art.top - art.height / 2) > 1) errors.push('EDIT is detached from the visual centre');
       const preview = rect('.video-card-preview');
       const projectGap = preview.top - caption.bottom;
       if (projectGap < 20 || projectGap > 40) errors.push('Hero-to-project spacing is unbalanced');
-      if (edit.left < art.left || edit.right > art.right) errors.push('EDIT letters extend outside the artwork');
       if (edit.left < 0 || edit.right > innerWidth) errors.push('EDIT letters extend outside the screen');
       if (getComputedStyle(document.querySelector('.hero-art')!).overflow !== 'visible') errors.push('Artwork can clip EDIT');
-      if (Math.abs(edit.left + edit.width / 2 - art.left - art.width / 2) > 1) errors.push('EDIT is off centre');
+      const editOffset = (edit.left + edit.width / 2) - (art.left + art.width / 2);
+      if (editOffset >= -art.width * 0.01 || editOffset <= -art.width * 0.2) errors.push('EDIT does not preserve desktop offset');
+      if (edit.top >= title.bottom || edit.top <= title.top || edit.bottom <= cat.top) errors.push('EDIT is detached from title/cat composition');
       if (getComputedStyle(document.querySelector('.hero-mobile-backdrop span')!).scale !== 'none') errors.push('Distorted lettering');
       return errors;
     });

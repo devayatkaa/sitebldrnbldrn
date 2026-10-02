@@ -215,16 +215,22 @@
   .hero-mobile-backdrop {
     position: absolute;
     inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
     z-index: 0;
     pointer-events: none;
     user-select: none;
     color: rgba(255,255,255,0.035);
   }
-  /* Fit the complete word inside the artwork instead of cropping E and T. */
-  .hero-mobile-backdrop span { flex: none; font-size: 33cqw; line-height: 1; white-space: nowrap; }
+  /* EDIT is a local background layer: offset left and tucked under the title,
+     with the cat and heading painted above it. */
+  .hero-mobile-backdrop span {
+    position: absolute;
+    left: 0;
+    top: clamp(4px, 3cqw, 14px);
+    font-size: 18cqw;
+    line-height: 1;
+    white-space: nowrap;
+  }
   #projects { padding-top: clamp(20px, 5vw, 28px); }
   .about-title { font-size: clamp(28px, 5vw, 42px); line-height: 1.25; overflow-wrap: anywhere; }
   .about-content { width: 100%; }
