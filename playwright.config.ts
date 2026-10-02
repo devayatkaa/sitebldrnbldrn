@@ -15,12 +15,13 @@ export default defineConfig({
   },
   projects: [
     ...[
-      [320, 568], [360, 740], [393, 851], [412, 915],
-      [851, 393], [915, 412], [768, 1024],
+      [320, 568], [360, 800], [375, 812], [390, 844], [393, 873], [412, 915], [430, 932],
+      [800, 360], [812, 375], [844, 390], [873, 393], [915, 412], [932, 430], [768, 1024],
     ].map(([width, height]) => ({
       name: `android-${width}x${height}`,
       use: { ...devices['Pixel 5'], viewport: { width, height }, deviceScaleFactor: 1 },
     })),
+    { name: 'android-dpr3', use: { ...devices['Pixel 5'], viewport: { width: 393, height: 873 }, deviceScaleFactor: 3 } },
     { name: 'desktop', use: { browserName: 'chromium', viewport: { width: 1440, height: 900 } } },
   ],
   webServer: {

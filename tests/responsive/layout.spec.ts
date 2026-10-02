@@ -15,6 +15,7 @@ async function checkTextBounds(page: Page, selector: string) {
 }
 
 test('readable hero, stable header, cards and about in every viewport', async ({ page }, info) => {
+  test.setTimeout(60000);
   await page.goto('/');
   await page.evaluate(() => document.fonts.ready);
   const viewport = page.viewportSize()!;
@@ -66,7 +67,8 @@ test('readable hero, stable header, cards and about in every viewport', async ({
   }
   await checkTextBounds(page, '.video-card h3, .video-youtube-caption');
   await page.locator('#about').scrollIntoViewIfNeeded();
-  await expect.poll(() => page.locator('.about-portrait img').evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
+  // R2 also serves six video streams; allow the real lazy image to finish downloading.
+  await expect.poll(() => page.locator('.about-portrait img').evaluate((img: HTMLImageElement) => img.naturalWidth), { timeout: 30000 }).toBeGreaterThan(0);
   await page.locator('.about-portrait img').evaluate((img: HTMLImageElement) => img.decode());
   await checkTextBounds(page, '.about-title, .about-content p');
   await page.locator('.about-panel').screenshot({ path: info.outputPath('about.png'), style: '.site-header { visibility: hidden; }' });
@@ -98,7 +100,7 @@ test('real entry animations do not hide or move controls after tapping', async (
   await expect(firstCard).toHaveCSS('opacity', '1');
   await expect(firstCard.locator('video')).toHaveAttribute('autoplay', '');
   const size = page.viewportSize()!;
-  if (size.width <= 767 && size.height > size.width) {
+  if (size.width <= 1023) {
     await expect(page.locator('.hero-object')).toHaveAttribute('data-revealed', 'true');
   } else {
     await expect(page.locator('.hero-backdrop')).toHaveAttribute('data-revealed', 'true');
