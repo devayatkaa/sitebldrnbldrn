@@ -163,7 +163,12 @@
     display: block;
     padding: clamp(28px, 6vw, 44px) 0 clamp(8px, 2vw, 16px);
   }
-  .mobile-hero-inner { gap: clamp(12px, 3vw, 18px); }
+  .mobile-hero-inner {
+    /* One coordinate system for the foreground, backdrop and cat. */
+    width: calc(100% - 32px);
+    max-width: 488px;
+    gap: clamp(12px, 3vw, 18px);
+  }
   .mobile-hero-eyebrow {
     margin: 0;
     font-size: clamp(9px, 2.5vw, 11px);
@@ -177,19 +182,19 @@
     width: 100%;
     display: grid;
     justify-items: center;
-    gap: clamp(4px, 1.5vw, 10px);
-    overflow: hidden;
+    row-gap: 0;
+    padding-bottom: 2cqw;
   }
   .mobile-edit-background {
     position: absolute;
     z-index: 0;
-    top: clamp(28px, 8cqw, 48px);
-    left: 0;
-    width: 100%;
-    transform: translateX(-3%);
+    top: 0;
+    left: 50%;
+    width: max-content;
+    transform: translateX(-50%);
     color: rgba(255,255,255,0.035);
-    font-size: clamp(170px, 52cqw, 360px);
-    line-height: 0.9;
+    font-size: 52cqw;
+    line-height: 1;
     white-space: nowrap;
     pointer-events: none;
     user-select: none;
@@ -199,7 +204,7 @@
     z-index: 2;
     margin: 0;
     max-width: 100%;
-    font-size: clamp(40px, 12cqw, 68px);
+    font-size: 13.4cqw;
     line-height: 1.12;
     white-space: nowrap;
     color: #f3f5f5;
@@ -212,7 +217,7 @@
   .mobile-cat {
     position: relative;
     z-index: 1;
-    width: clamp(210px, 62cqw, 300px);
+    width: 62cqw;
     margin: 0;
   }
   .mobile-hero-caption { width: 100%; gap: clamp(10px, 2.5vw, 14px); margin-top: clamp(2px, 1vw, 6px); }
@@ -222,6 +227,7 @@
     margin: 0;
     font-size: clamp(15px, 3.8vw, 20px);
     line-height: 1.5;
+    text-wrap: balance;
   }
   .site-header {
     position: relative;
@@ -271,9 +277,9 @@
 @media (max-width: 1023px) and (max-height: 500px) and (orientation: landscape) {
   .mobile-hero { padding-top: 16px; }
   .mobile-hero-inner { gap: 8px; }
-  .mobile-hero-visual { max-width: 400px; }
-  .mobile-cat { width: clamp(150px, 34cqw, 220px); }
-  .mobile-motion-title { font-size: clamp(32px, 9cqw, 52px); }
+  /* Scale the entire composition together when vertical space is limited. */
+  .mobile-hero-inner { max-width: 300px; }
+  .mobile-hero-tagline { font-size: 15px; }
 }
 @media (min-width: 1024px) {
   .mobile-hero { display: none; }

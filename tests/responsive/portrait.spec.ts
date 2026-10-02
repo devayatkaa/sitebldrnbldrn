@@ -34,11 +34,12 @@ test('mobile composition survives rotation, browser chrome and longer text', asy
       const preview = rect('.video-card-preview');
       const projectGap = preview.top - caption.bottom;
       if (projectGap < 20 || projectGap > 64) errors.push('Hero-to-project spacing is unbalanced');
-      if (edit.left < 0 || edit.right > innerWidth) errors.push('EDIT letters extend outside the screen');
-      if (getComputedStyle(document.querySelector('.mobile-hero-visual')!).overflow !== 'hidden') errors.push('Mobile visual loses local decorative clipping');
-      const editOffset = (edit.left + edit.width / 2) - (art.left + art.width / 2);
-      if (editOffset >= -art.width * 0.01 || editOffset <= -art.width * 0.2) errors.push('EDIT does not preserve desktop offset');
-      if (edit.top >= title.bottom || edit.top <= title.top || edit.bottom <= cat.top) errors.push('EDIT is detached from title/cat composition');
+      // EDIT is a full-bleed decorative layer, intentionally cropped by the hero.
+      if (edit.width <= art.width) errors.push('EDIT is no longer oversized background typography');
+      if (getComputedStyle(document.querySelector('.mobile-hero')!).overflow !== 'hidden') errors.push('Decorative typography can overflow the page');
+      if (edit.top > title.bottom || edit.bottom < cat.top + cat.height * 0.35) errors.push('EDIT is detached from title/cat composition');
+      const layer = (selector: string) => Number(getComputedStyle(document.querySelector(selector)!).zIndex);
+      if (layer('.mobile-edit-background') >= layer('.mobile-cat') || layer('.mobile-cat') >= layer('.mobile-motion-title')) errors.push('Foreground/backdrop stacking is incorrect');
       if (getComputedStyle(document.querySelector('.mobile-edit-background')!).scale !== 'none') errors.push('Distorted lettering');
       return errors;
     });
