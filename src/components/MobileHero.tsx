@@ -5,7 +5,7 @@ export default function MobileHero() {
       <div className="mobile-hero-inner mx-auto flex w-full max-w-[520px] flex-col items-center text-center">
         <p data-reveal data-reveal-delay="60" className="mobile-hero-eyebrow font-sans uppercase text-white/60">bldrn — видеомонтажёр</p>
         <div className="mobile-hero-visual">
-          <div aria-hidden="true" className="mobile-edit-background font-display font-[900] uppercase tracking-tighter">EDIT</div>
+          <div aria-hidden="true" data-reveal="fade" data-reveal-delay="220" className="mobile-edit-background font-display font-[900] uppercase tracking-tighter">EDIT</div>
           <h1 data-reveal data-reveal-delay="130" className="mobile-motion-title font-display font-[900] uppercase tracking-tighter">МОУШН</h1>
           <div data-reveal="fade" data-reveal-delay="220" className="mobile-cat relative flex aspect-square items-center justify-center animate-float">
             <div aria-hidden="true" className="absolute inset-4 rounded-full bg-emerald-200/10 blur-3xl" />

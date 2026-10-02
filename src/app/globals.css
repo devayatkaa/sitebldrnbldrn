@@ -199,6 +199,11 @@
     pointer-events: none;
     user-select: none;
   }
+  .mobile-edit-background[data-reveal] {
+    /* Keep centering in both reveal states; only opacity transitions. */
+    transform: translateX(-50%);
+    transition-duration: 1600ms;
+  }
   .mobile-motion-title {
     position: relative;
     z-index: 2;
