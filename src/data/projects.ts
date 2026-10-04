@@ -21,7 +21,7 @@ export const projects: Project[] = [
     id: '02',
     title: 'Простой Motion',
     category: 'UI Стиль',
-    videoUrl: '/public/videos/folder.mp4',
+    videoUrl: '/videos/folder.mp4',
   },
   {
     id: '03',
