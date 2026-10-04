@@ -21,7 +21,7 @@ export const projects: Project[] = [
     id: '02',
     title: 'Простой Motion',
     category: 'UI Стиль',
-    videoUrl: 'https://pub-1da93a6fafd14fe684660a2ca5bc384a.r2.dev/folder.mp4',
+    videoUrl: '/public/videos/folder.mp4',
   },
   {
     id: '03',
