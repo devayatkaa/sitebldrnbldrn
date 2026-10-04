@@ -15,7 +15,7 @@ export default function Hero() {
             <div data-reveal data-reveal-delay="220" className="hero-object relative mt-5 flex aspect-square items-center justify-center animate-float">
               <div aria-hidden="true" className="absolute inset-4 rounded-full bg-emerald-200/10 blur-3xl" />
               <img
-                src="/images/bg-object.png"
+                src="https://pub-1da93a6fafd14fe684660a2ca5bc384a.r2.dev/bg-object.png"
                 alt="Bladerunner"
                 fetchPriority="high"
                 className="relative z-10 h-auto w-[92%] drop-shadow-[0_16px_24px_rgba(0,0,0,0.3)]"

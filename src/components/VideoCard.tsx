@@ -3,7 +3,7 @@
 import type { Project } from '../data/projects';
 
 
-const youtubeIcon = '/images/youtube.svg';
+const youtubeIcon = 'https://pub-1da93a6fafd14fe684660a2ca5bc384a.r2.dev/yutube.png';
 
 interface VideoCardProps {
   project: Project;

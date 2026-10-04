@@ -46,7 +46,7 @@ export default function AboutMe({ lang = 'RU' }: AboutMeProps) {
             <div className="relative flex h-28 w-28 items-center justify-center overflow-hidden rounded-full border border-white/15 bg-white/5 md:h-44 md:w-44">
 
               <img
-                src="/images/profile.png"
+                src="https://pub-1da93a6fafd14fe684660a2ca5bc384a.r2.dev/profile.png"
                 alt="Avatar"
                 loading="lazy"
                 decoding="async"
