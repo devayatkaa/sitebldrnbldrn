@@ -22,6 +22,7 @@ export default function VideoModal({ project, onClose }: { project: any, onClose
       <div className="w-full max-w-7xl aspect-video bg-black shadow-[0_0_100px_rgba(99,102,241,0.2)]" onClick={e => e.stopPropagation()}>
         <video 
           src={project.fullVideoUrl} 
+          poster={project.poster}
           controls 
           autoPlay 
           className="w-full h-full object-contain" 
