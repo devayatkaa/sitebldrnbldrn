@@ -85,7 +85,7 @@ export default function AboutMe({ lang = 'RU' }: AboutMeProps) {
 
               <p data-reveal data-reveal-delay="180" className="max-w-[36rem] text-base font-normal leading-relaxed text-[#aeb0b8] md:text-xl">
                 {lang === 'RU'
-                  ? 'Работаю в разных сферах с разными авторами, основное направление развлекательный контент'
+                  ? 'Работаю в разных сферах c разными авторами, основной стиль - горизонтальный моушн'
                   : 'I specialize in dense, structured storytelling. My approach is a focus on clarity, rhythm, and intention.'}
               </p>
 

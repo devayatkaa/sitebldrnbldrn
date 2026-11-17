@@ -12,7 +12,7 @@ export const projects: Project[] = [
   {
     id: '01',
     title: 'Стиль Azzazin',
-    category: 'Развлекательный',
+    category: 'Моушн',
     videoUrl: 'https://pub-1da93a6fafd14fe684660a2ca5bc384a.r2.dev/minion.mp4',
     poster: '/posters/minion.webp',
     youtubeUrl: 'https://youtu.be/FkxC71ai0yY?si=UviWP6_gMamyhoAF&t=81',
@@ -20,7 +20,7 @@ export const projects: Project[] = [
   },
   {
     id: '02',
-    title: 'Простой Motion',
+    title: 'Простой Моушн',
     category: 'UI Стиль',
     videoUrl: 'https://pub-1da93a6fafd14fe684660a2ca5bc384a.r2.dev/folder.mp4',
     poster: '/posters/folder.webp',
@@ -28,7 +28,7 @@ export const projects: Project[] = [
   {
     id: '03',
     title: 'Стиль Azzazin',
-    category: 'Развлекательный',
+    category: 'Моушн',
     videoUrl: 'https://pub-1da93a6fafd14fe684660a2ca5bc384a.r2.dev/pudge.mp4',
     poster: '/posters/pudge.webp',
     youtubeUrl: 'https://youtu.be/FkxC71ai0yY?si=fXpmZYbOfxVyGNyU&t=243',
@@ -37,7 +37,7 @@ export const projects: Project[] = [
   {
     id: '04',
     title: 'Стиль Azzazin',
-    category: 'Развлекательный',
+    category: 'Моушн',
     videoUrl: 'https://pub-1da93a6fafd14fe684660a2ca5bc384a.r2.dev/tiny.mp4',
     poster: '/posters/tiny.webp',
     youtubeUrl: 'https://youtu.be/eLb9KPCpaVc?si=Lho0dRHx29H6bPIF&t=79',
@@ -46,7 +46,7 @@ export const projects: Project[] = [
   {
     id: '05',
     title: 'Стиль Azzazin',
-    category: 'Развлекательный',
+    category: 'Моушн',
     videoUrl: 'https://pub-1da93a6fafd14fe684660a2ca5bc384a.r2.dev/azazin.mp4',
     poster: '/posters/azazin.webp',
     youtubeUrl: 'https://youtu.be/j1yKEDHz4_M?si=f7hcvUsmhQV6syTH&t=899',
@@ -55,7 +55,7 @@ export const projects: Project[] = [
   {
     id: '06',
     title: 'Моушн интро',
-    category: 'Развлекательный',
+    category: 'Моушн',
     videoUrl: 'https://pub-1da93a6fafd14fe684660a2ca5bc384a.r2.dev/kotikyblur.mp4',
     poster: '/posters/kotikyblur.webp',
     youtubeUrl: 'https://youtu.be/UZlSUTgSqb8',
